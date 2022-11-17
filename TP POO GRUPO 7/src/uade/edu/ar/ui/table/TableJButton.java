@@ -1,6 +1,5 @@
 package uade.edu.ar.ui.table;
 
-import uade.edu.ar.controller.LaboratorioController;
 import uade.edu.ar.dto.ModelDto;
 
 import javax.swing.*;

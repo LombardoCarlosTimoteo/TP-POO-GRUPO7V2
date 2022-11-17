@@ -1,5 +1,3 @@
-import uade.edu.ar.controller.LaboratorioController;
-
 import java.io.FileNotFoundException;
 
 public class App {

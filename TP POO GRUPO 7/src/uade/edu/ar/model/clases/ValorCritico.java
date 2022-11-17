@@ -24,6 +24,10 @@ public class ValorCritico {
                 this.TipoComparacion=TipoComparacion;
             }
 
+    public ValorCritico(int idValorC, TipoResultado tipoComparacion, String valor, Practica practicaAsociada) {
+
+    }
+
     public String getValor() {
         return Valor;
     }

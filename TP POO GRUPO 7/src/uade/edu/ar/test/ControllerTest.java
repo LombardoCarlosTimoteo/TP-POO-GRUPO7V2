@@ -2,7 +2,6 @@ package uade.edu.ar.test;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import uade.edu.ar.controller.LaboratorioController;
 import uade.edu.ar.dto.ModelDto;
 
 import java.util.List;

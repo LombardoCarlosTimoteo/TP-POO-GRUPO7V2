@@ -86,4 +86,7 @@ public class Sucursal {
     public void setPeticonesCompletas(boolean peticonesCompletas) {
         PeticonesCompletas = peticonesCompletas;
     }
+
+    public boolean getPeticonesCompletas() {return PeticonesCompletas;}
+
 }

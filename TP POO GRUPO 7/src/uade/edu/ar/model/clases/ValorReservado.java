@@ -6,6 +6,7 @@ public class ValorReservado {
 
     //DEFINIR ATRIBUTOS
 
+    private int IDValorR;
     private String Valor;
 
     private TipoResultado TipoComparacion;
@@ -15,14 +16,11 @@ public class ValorReservado {
     private Practica PracticaAsociada;
 
 
-
-
     //DEFINIR METODOS
-       //CONSTRUCTOR
-            public ValorReservado(String Valor, TipoResultado TipoComparacion){
-                this.Valor=Valor;
-                this.TipoComparacion=TipoComparacion;
-    }
+    //CONSTRUCTOR
+    public ValorReservado() {}
+
+    public ValorReservado(String valor, TipoResultado tipoComparacion, Practica practicaAsociada, int idValorR){}
 
     public String getValor() {
         return Valor;

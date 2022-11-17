@@ -1,7 +1,5 @@
 package uade.edu.ar.ui.table;
 
-import uade.edu.ar.controller.LaboratorioController;
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
