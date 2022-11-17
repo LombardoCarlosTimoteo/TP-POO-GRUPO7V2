@@ -1,9 +1,6 @@
 package uade.edu.ar.controller;
-import uade.edu.ar.dao.PacienteDAO;
-import uade.edu.ar.dto.PacienteDTO;
 import uade.edu.ar.dto.SucursalDTO;
 import uade.edu.ar.dao.SucursalDAO;
-import uade.edu.ar.model.clases.Paciente;
 import uade.edu.ar.model.clases.Sucursal;
 
 import java.io.File;
@@ -46,7 +43,7 @@ public void AgregarSucursal(SucursalDTO S){
     public static synchronized ControllerSucursal getInstances() throws Exception {
         if(CONTROLLERSUCURSAL == null) {
             CONTROLLERSUCURSAL = new ControllerSucursal();
-            SucursalDAO = new SucursalDAO(Paciente.class,getPathOutModel(Sucursal.class.getSimpleName()));//se crea el dao para que ya este en memoria fisica y no crearlo todo el tiempo
+            SucursalDAO = new SucursalDAO(Sucursal.class,getPathOutModel(Sucursal.class.getSimpleName()));//se crea el dao para que ya este en memoria fisica y no crearlo todo el tiempo
             ListaSucursales = SucursalDAO.getAll(Sucursal.class);//recupero la info de ese archivo creado.
         }
         return CONTROLLERSUCURSAL;

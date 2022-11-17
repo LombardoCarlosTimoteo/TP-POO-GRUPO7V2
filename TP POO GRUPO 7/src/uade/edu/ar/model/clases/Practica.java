@@ -42,7 +42,21 @@ public class Practica {
         ResultadoNuevo.setPeticionAsociada(PeticionAsociada);
         return ResultadoNuevo;
     }
+    public Practica CrearPractica(String IDPractica,String Nombre,String Grupo,String CantHorasResultado,boolean Habilitado, Laboratorio LabAsociado, ArrayList VCritico, ArrayList VReservado, Peticion PetAsociada, ArrayList ResultadoAsociado){
+        Practica PracticaNueva = new Practica();
+        PracticaNueva.setIDPractica(IDPractica);
+        PracticaNueva.setNombre(Nombre);
+        PracticaNueva.setGrupo(Grupo);
+        PracticaNueva.setCantHorasResultado(CantHorasResultado);
+        PracticaNueva.setHabilitado(Habilitado);
+        PracticaNueva.setLaboratorioAsociado(LabAsociado);
+        PracticaNueva.setVCriticoAsociado(VCritico);
+        PracticaNueva.setResultadoAsociado(ResultadoAsociado);
+        PracticaNueva.setVReservadoAsociado(VReservado);
+        PracticaNueva.setPeticionAsociada(PetAsociada);
 
+        return PracticaNueva;
+    }
 
 
 

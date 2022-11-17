@@ -9,7 +9,7 @@ public class ValorCritico {
     private String Valor;
 
     private TipoResultado TipoComparacion;
-
+    private int IDValorC;
 
 
 
@@ -51,4 +51,13 @@ public class ValorCritico {
     public void setPracticaAsociada(Practica practicaAsociada) {
         PracticaAsociada = practicaAsociada;
     }
+    public int getIDValorC() {
+        return IDValorC;
+    }
+
+    public void setIDValorC(int IDValorC) {
+        this.IDValorC = IDValorC;
+    }
+
+
 }

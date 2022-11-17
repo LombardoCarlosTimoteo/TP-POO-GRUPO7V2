@@ -45,4 +45,12 @@ public class ValorReservado {
     public void setPracticaAsociada(Practica practicaAsociada) {
         PracticaAsociada = practicaAsociada;
     }
+    public int getIDValorR() {
+        return IDValorR;
+    }
+
+    public void setIDValorR(int IDValorR) {
+        this.IDValorR = IDValorR;
+    }
+
 }
