@@ -1,7 +1,11 @@
 package uade.edu.ar.dto;
 
+import uade.edu.ar.controller.ControllerUsuario;
 import uade.edu.ar.model.RolUsuario;
+import uade.edu.ar.model.clases.Paciente;
+import uade.edu.ar.model.clases.Peticion;
 
+import java.util.ArrayList;
 import java.util.Date;
 
 public class UsuarioDTO {
@@ -23,6 +27,13 @@ public class UsuarioDTO {
     private Date FechaNacimiento;
 
     private RolUsuario Rol;
+
+
+    //DEFINIR RELACIONES
+
+    private ArrayList<Paciente> PacienteAsociado;
+
+    private ArrayList<Peticion> PeticionAsociada;
 
 
     public UsuarioDTO(int DNI, String NombreUsuario, String Email, String Password, String Nombre, String Domicilio, Date FechaNacimiento, RolUsuario Rol) {
