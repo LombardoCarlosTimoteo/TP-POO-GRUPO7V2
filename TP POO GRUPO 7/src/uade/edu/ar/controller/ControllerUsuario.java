@@ -5,6 +5,7 @@ import uade.edu.ar.dao.UsuarioDAO;
 import uade.edu.ar.dto.PacienteDTO;
 import uade.edu.ar.dto.UsuarioDTO;
 import uade.edu.ar.model.clases.Paciente;
+import uade.edu.ar.model.clases.Peticion;
 import uade.edu.ar.model.clases.Usuario;
 
 import java.util.ArrayList;
@@ -103,6 +104,9 @@ private ControllerUsuario(){}
             }
         }
         return -1;
+    }
+
+
     }
 
 

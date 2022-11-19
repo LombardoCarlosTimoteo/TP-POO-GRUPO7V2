@@ -101,7 +101,7 @@ public class Peticion {
         UsuarioAsociado = usuarioAsociado;
     }
 
-    public ArrayList<Practica> getPracticaAsociada(ArrayList pracAsociada) {
+    public ArrayList<Practica> getPracticaAsociada() {
         return PracticaAsociada;
     }
 

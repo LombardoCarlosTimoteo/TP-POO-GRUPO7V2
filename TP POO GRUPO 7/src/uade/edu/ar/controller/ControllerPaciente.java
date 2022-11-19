@@ -19,10 +19,6 @@ public class ControllerPaciente {
     private static List<Paciente> ListaPacientes;
 
 
-    public void EliminarPaciente(int i){
-        getPacientes().remove(i);
-    }
-
     public void AgregarPaciente(PacienteDTO P){
         getPacientes().add(P);
     }
@@ -127,6 +123,20 @@ public class ControllerPaciente {
     public static PacienteDTO toDto(Paciente model){
         return new PacienteDTO(model.getDNI(),model.getNombreUsuario(),model.getEmail(),model.getPassword(),model.getNombre(),model.getDomicilio(),model.getFechaNacimiento(),model.getEdad(),model.isPeticonesCompletas(),model.getSexo());
     }
+
+    public void EliminarPaciente(int id){
+        int posicion = getIndex(id);
+        boolean peticion = ListaPacientes.get(posicion).isPeticonesCompletas();
+        if(posicion != -1 && !peticion){
+            ListaPacientes.remove(posicion);
+            System.out.println("Paciente eliminado exitosamente");
+        }
+        else System.out.println("El paciente no puede ser eliminado ya que o no existe o tiene peticiones completas.");
+     }
+
+
+
+
 
 }
     /*

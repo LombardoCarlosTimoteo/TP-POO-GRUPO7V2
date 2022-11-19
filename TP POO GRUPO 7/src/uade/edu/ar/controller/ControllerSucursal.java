@@ -1,7 +1,7 @@
 package uade.edu.ar.controller;
 import uade.edu.ar.dto.SucursalDTO;
 import uade.edu.ar.dao.SucursalDAO;
-import uade.edu.ar.model.clases.Sucursal;
+import uade.edu.ar.model.clases.*;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -103,102 +103,51 @@ public void AgregarSucursal(SucursalDTO S){
         return new SucursalDTO(model.getNumero(),model.getDireccion(),model.getResponsableTecnico(),model.getPeticonesCompletas());
     }
 
-    /*private static ControllerLaboratorio CONTROLLERLABORATORIO = null;
 
-    private static LaboratorioDAO laboratorioDAO;
+    public ArrayList<Peticion> ListarPeticionesValorCritico(){
+        ArrayList lista = new ArrayList();
 
-    private static List<Laboratorio> Laboratorios;
+        for (int i = 0; i <= ListaSucursales.size(); i++){
+            Sucursal sucursal = ListaSucursales.get(i);
+            ArrayList Listapeticiones = sucursal.getPeticionAsociada();
 
+            for (int j = 0; i <= Listapeticiones.size(); j++){
+                Peticion peticion = (Peticion) Listapeticiones.get(j);
+                ArrayList Listapracticas = peticion.getPracticaAsociada();
 
-    private ControllerLaboratorio(){}
+                for (int k = 0; k <= Listapracticas.size(); k++){
+                    Practica practica = (Practica) Listapracticas.get(k);
+                    ArrayList Listaresultado = practica.getResultadoAsociado();
+                    ArrayList ListavalorReservado = practica.getVReservadoAsociado();
 
-    public static synchronized ControllerLaboratorio getInstances() throws Exception {
-        if(CONTROLLERLABORATORIO == null) {
-            CONTROLLERLABORATORIO = new ControllerLaboratorio();
-            laboratorioDAO = new LaboratorioDAO(Laboratorio.class,getPathOutModel(Laboratorio.class.getSimpleName()));//se crea el dao para que ya este en memoria fisica y no crearlo todo el tiempo
-            Laboratorios = laboratorioDAO.getAll(Laboratorio.class);//recupero la info de ese archivo creado.
-        }
-        return CONTROLLERLABORATORIO;
-    }
+                    for (int w = 0; w <= Listaresultado.size(); w++) {
+                        Resultado Resultado = (uade.edu.ar.model.clases.Resultado) Listaresultado.get(w);
+                        String Valor = Resultado.getValor();
 
+                        for (int m = 0; m <= ListavalorReservado.size(); m++) {
+                            ValorReservado valorReservado = (ValorReservado) ListavalorReservado.get(m);
+                            String comparacion = String.valueOf(valorReservado.getTipoComparacion());
 
-    public void addModel(LaboratorioDTO dto) throws Exception {// guarda en el archivo un objeto por medio del dto. lo guarda si no existe
-        if(getByIdModel(dto.getCUIT()) == null){
-            laboratorioDAO.save(toModel(dto));
-        }
-    }
+                            String valorComparacion = valorReservado.getValor();
 
-    public ModelDto getByIdModel(int id) throws Exception {
-        for (Laboratorio model: Laboratorios) {
-            if (Laboratorio.getId().equals(id)){
-                return toDto(model);
+                            boolean hacer = false;
+
+                            if (comparacion == "Booleano") {
+                                if (Valor == valorComparacion) hacer = true;
+                            } else if (comparacion == "Umbral") {
+                                if (Integer.parseInt(Valor) > Integer.parseInt(valorComparacion)) hacer = true;
+                            } else if (comparacion == "Lista") {
+                                if (valorComparacion.contains(Valor)) hacer = true;
+                            } else if (comparacion == "Rango") {
+                                String[] listaRango = valorComparacion.split("-");
+                                if (Integer.parseInt(Valor) > Integer.parseInt(listaRango[0]) && Integer.parseInt(Valor) < Integer.parseInt(listaRango[1])) hacer = true;
+                            }
+                            if (hacer && !lista.contains(practica.getIDPractica())) lista.add(practica.getIDPractica());
+                        }
+                    }
+                }
             }
         }
-        return  null;
+        return lista;
     }
-
-    public void deleteByIdModel(String id){
-        int index = getIndex(id);
-        if(index != -1){
-            Laboratorios.remove(index);
-        }
-    }
-
-    private int getIndex(String id){
-        for (int i=0;i<Laboratorios.size();i++){
-            if(Laboratorios.get(i).getId().equals(id)){
-                return i;
-            }
-        }
-        return -1;
-    }
-
-    public List<ModelDto> getAll() throws Exception {
-        List<ModelDto> dtoList = new ArrayList<>();
-        for (Laboratorio model : modelDao.getAll(Laboratorio.class)) {
-            dtoList.add(toDto(model));
-        }
-        return dtoList;
-    }
-
-    private static String getPathOutModel(String name){
-        String dir = "C:\\Users\\Admin\\Desktop\\TPO POO";//crearlo en la direccion en donde se encuentra clonado el repositorio
-        return  new File(dir+name+".json").getPath();
-    }
-
-    public static Laboratorio toModel(ModelDto dto){
-        return new Laboratorio(dto.getIdModel(),dto.getNameModel());
-    }
-
-    public static ModelDto toDto(Laboratorio model){
-        return new ModelDto(model.getId(),model.getName());
-    }
-*/
-
-
-    /*public Paciente(int DNI,String NombreUsuario,String Email,String Password,String Nombre,String Domicilio, Date FechaNacimiento,int Edad, boolean PeticonesCompletas,SexoPaciente Sexo){
-                this.DNI = DNI;
-                this.NombreUsuario= NombreUsuario;
-                this.Email=Email;
-                this.Password=Password;
-                this.Nombre=Nombre;
-                this.Domicilio=Domicilio;
-                this.FechaNacimiento=FechaNacimiento;
-                this.Edad=Edad;
-                this.PeticonesCompletas=PeticonesCompletas;
-                this.Sexo=Sexo;
-            }
-
-            public paciente (){}
-
-            crear paciente(parametros)
-            paciente p= new paciente
-            set
-            set
-            set
-            set
-            set
-
-
-            */
 }
