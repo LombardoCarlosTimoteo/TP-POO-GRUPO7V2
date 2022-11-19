@@ -1,7 +1,7 @@
 package uade.edu.ar.dto;
 
 import uade.edu.ar.model.SexoPaciente;
-import uade.edu.ar.model.clases.Sucursal;
+import uade.edu.ar.model.clases.Paciente;
 
 import java.util.Date;
 
@@ -124,6 +124,12 @@ public class PacienteDTO {
     public void setSexo(SexoPaciente sexo) {
         Sexo = sexo;
     }
+
+public Paciente dtoToModel(PacienteDTO dto){
+        Paciente p = new Paciente(dto.getDNI(), dto.getNombreUsuario(), dto.getEmail(), dto.getPassword(), dto.getNombre(), dto.getDomicilio(), dto.getFechaNacimiento(),dto.getEdad(), dto.isPeticonesCompletas(), dto.getSexo());
+    return p;
+}
+
 }
 
 

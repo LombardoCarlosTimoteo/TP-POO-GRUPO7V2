@@ -20,11 +20,13 @@ public class Sucursal {
 
     private ArrayList<Peticion> PeticionAsociada;
 
-    public Sucursal( int Numero,String Direccion,String ResponsableTecnico,boolean PeticonesCompletas) {
+    public Sucursal( int Numero,String Direccion,String ResponsableTecnico,boolean PeticonesCompletas,ArrayList PacienteAsociado,ArrayList PeticionAsociada) {
         this.Numero = Numero;
         this.Direccion=Direccion;
         this.ResponsableTecnico=ResponsableTecnico;
         this.PeticonesCompletas=PeticonesCompletas;
+        this.PacienteAsociado=PacienteAsociado;
+        this.PeticionAsociada=PeticionAsociada;
     }
     //DEFINICION DE METODOS
         //GETTERS/SETTERS

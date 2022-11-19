@@ -1,5 +1,7 @@
 package uade.edu.ar.model.clases;
 
+import uade.edu.ar.model.clases.Paciente;
+
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -114,4 +116,18 @@ public class Peticion {
     public void setResultadoAsociado(ArrayList<Resultado> resultadoAsociado) {
         ResultadoAsociado = resultadoAsociado;
     }
+
+    public Peticion(Date FechaCarg, Date FechaEntrega, int IDPeticion,String ObraSocial,boolean Completado, Paciente PacAsociado, Sucursal SAsociada, Usuario UAsociado, ArrayList PracAsociada, ArrayList RAsociado){
+        this.FechaCarga=FechaCarg;
+        this.FechaEntrega=FechaEntrega;
+        this.IDPeticion=IDPeticion;
+        this.ObraSocial=ObraSocial;
+        this.Completado=Completado;
+        this.PacienteAsociada=PacAsociado;
+        this.SucursalAsociada=SAsociada;
+        this.UsuarioAsociado=UAsociado;
+        this.PracticaAsociada=PracAsociada;
+        this.ResultadoAsociado=RAsociado;
+    }
+
 }

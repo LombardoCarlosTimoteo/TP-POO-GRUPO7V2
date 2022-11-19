@@ -74,11 +74,11 @@ private ControllerUsuario(){}
     }
 
     public static Usuario toModel(UsuarioDTO dto){
-        return new Usuario(dto.getDNI(),dto.getNombreUsuario(),dto.getEmail(),dto.getPassword(),dto.getNombre(),dto.getFechaNacimiento(),dto.getRol());
+        return new Usuario(dto.getDNI(),dto.getNombreUsuario(),dto.getEmail(),dto.getPassword(),dto.getNombre(),dto.getDomicilio(),dto.getFechaNacimiento(),dto.getRol());
     }
 
     public static UsuarioDTO toDto(Usuario model){
-        return new UsuarioDTO(model.getDNI(),model.getNombreUsuario(),model.getEmail(),model.getPassword(),model.getNombre(),model.getFechaNacimiento(),model.getRol());
+        return new UsuarioDTO(model.getDNI(),model.getNombreUsuario(),model.getEmail(),model.getPassword(),model.getNombre(),model.getDomicilio(),model.getFechaNacimiento(),model.getRol());
     }
     public UsuarioDTO getByIdModel(int id) throws Exception {
         for (Usuario model: ListaUsuarios) {

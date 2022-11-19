@@ -97,7 +97,7 @@ public void AgregarSucursal(SucursalDTO S){
 
 
     public static Sucursal toModel(SucursalDTO dto) {
-        return new Sucursal(dto.getNumero(), dto.getDireccion(), dto.getResponsableTecnico(), dto.getPeticonesCompletas());
+        return new Sucursal(dto.getNumero(), dto.getDireccion(), dto.getResponsableTecnico(), dto.getPeticonesCompletas(),dto.getPacienteAsociado(),dto.getPeticionAsociada());
     }
     public static SucursalDTO toDto(Sucursal model){
         return new SucursalDTO(model.getNumero(),model.getDireccion(),model.getResponsableTecnico(),model.getPeticonesCompletas());

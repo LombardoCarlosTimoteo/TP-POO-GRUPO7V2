@@ -1,7 +1,7 @@
 package uade.edu.ar.model.clases;
 
+import uade.edu.ar.dto.PacienteDTO;
 import uade.edu.ar.model.SexoPaciente;
-import uade.edu.ar.model.clases.Sucursal;
 import uade.edu.ar.controller.ControllerPaciente;
 
 import java.util.ArrayList;
@@ -54,21 +54,6 @@ public class Paciente {
                 this.Sexo=Sexo;
             }
 
-    //CONSTRUCTOR PETICIONES
-    public Peticion CrearPeticion(Date FechaCarg, Date FechaEntrega, int IDPeticion,String ObraSocial,boolean Completado, Paciente PacAsociado, Sucursal SAsociada, Usuario UAsociado, ArrayList PracAsociada, ArrayList RAsociado){
-        Peticion PeticionNueva = new Peticion();
-        PeticionNueva.setFechaCarga(FechaCarg);
-        PeticionNueva.setFechaEntrega(FechaEntrega);
-        PeticionNueva.setIDPeticion(IDPeticion);
-        PeticionNueva.setObraSocial(ObraSocial);
-        PeticionNueva.setCompletado(Completado);
-        PeticionNueva.setPacienteAsociada(PacAsociado);
-        PeticionNueva.setSucursalAsociada(SAsociada);
-        PeticionNueva.setUsuarioAsociado(UAsociado);
-        PeticionNueva.setPracticaAsociada(PracAsociada);
-        PeticionNueva.setResultadoAsociado(RAsociado);
-        return PeticionNueva;
-    }
 
 
 
@@ -182,5 +167,10 @@ public class Paciente {
 
     public void setControllerPaciente(uade.edu.ar.controller.ControllerPaciente controllerPaciente) {
         ControllerPaciente = controllerPaciente;
-    }
-}
+
+      /*  public static PacienteDTO toDto(Paciente paciente){
+            PacienteDTO pDTO = new Paciente(p.getDNI(), p.getNombreUsuario(), p.getEmail(), p.getPassword(), p.getNombre(), p.getDomicilio(), p.getFechaNacimiento(),p.getEdad(), p.isPeticonesCompletas(), p.getSexo());
+            return pDTO;
+        }
+     }*/
+}}

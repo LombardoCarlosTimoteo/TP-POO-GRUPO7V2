@@ -53,4 +53,10 @@ public class Resultado {
         PeticionAsociada = peticionAsociada;
     }
 
+    public Resultado(String Valor,int IDResultado, Practica PracticaAsociada, Peticion PeticionAsociada){
+        this.Valor = Valor;
+        this.IDResultado = IDResultado;
+        this.PracticaAsociada = PracticaAsociada;
+        this.PeticionAsociada = PeticionAsociada;
+    }
 }
