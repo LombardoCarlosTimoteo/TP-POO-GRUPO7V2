@@ -53,4 +53,11 @@ public class ValorReservado {
         this.IDValorR = IDValorR;
     }
 
+    public ValorReservado(String Valor,TipoResultado TipoComparacion, int IDValorR){
+        this.Valor=Valor;
+        this.TipoComparacion=TipoComparacion;
+        this.IDValorR = IDValorR;
+    }
+
+
 }

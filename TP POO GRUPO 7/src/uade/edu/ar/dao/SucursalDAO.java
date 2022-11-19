@@ -1,6 +1,7 @@
 package uade.edu.ar.dao;
 
-import uade.edu.ar.model.clases.Laboratorio;
+import uade.edu.ar.model.clases.Paciente;
+import uade.edu.ar.model.clases.Sucursal;
 import uade.edu.ar.util.GenericDAO;
 
     public class SucursalDAO extends GenericDAO {

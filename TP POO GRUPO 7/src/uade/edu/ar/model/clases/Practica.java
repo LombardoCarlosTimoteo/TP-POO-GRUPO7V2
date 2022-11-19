@@ -19,8 +19,6 @@ public class Practica {
 
     //DEFINIR RELACIONES
 
-    private Laboratorio LaboratorioAsociado;
-
     private ArrayList<ValorCritico> VCriticoAsociado;
 
     private ArrayList<ValorReservado> VReservadoAsociado;
@@ -34,28 +32,17 @@ public class Practica {
     //DEFINIR METODOS
 
     //CONSTRUCTOR RESULTADOS
-    public Resultado CrearResultado(String Valor,int IDResultado, Practica PracticaAsociada, Peticion PeticionAsociada){
-        Resultado ResultadoNuevo = new Resultado();
-        ResultadoNuevo.setIDResultado(IDResultado);
-        ResultadoNuevo.setValor(Valor);
-        ResultadoNuevo.setPracticaAsociada(PracticaAsociada);
-        ResultadoNuevo.setPeticionAsociada(PeticionAsociada);
-        return ResultadoNuevo;
-    }
-    public Practica CrearPractica(String IDPractica,String Nombre,String Grupo,String CantHorasResultado,boolean Habilitado, Laboratorio LabAsociado, ArrayList VCritico, ArrayList VReservado, Peticion PetAsociada, ArrayList ResultadoAsociado){
-        Practica PracticaNueva = new Practica();
-        PracticaNueva.setIDPractica(IDPractica);
-        PracticaNueva.setNombre(Nombre);
-        PracticaNueva.setGrupo(Grupo);
-        PracticaNueva.setCantHorasResultado(CantHorasResultado);
-        PracticaNueva.setHabilitado(Habilitado);
-        PracticaNueva.setLaboratorioAsociado(LabAsociado);
-        PracticaNueva.setVCriticoAsociado(VCritico);
-        PracticaNueva.setResultadoAsociado(ResultadoAsociado);
-        PracticaNueva.setVReservadoAsociado(VReservado);
-        PracticaNueva.setPeticionAsociada(PetAsociada);
 
-        return PracticaNueva;
+    public Practica(String IDPractica,String Nombre,String Grupo,String CantHorasResultado,boolean Habilitado, ArrayList VCritico, ArrayList VReservado, Peticion PetAsociada, ArrayList ResultadoAsociado){
+        this.IDPractica = IDPractica;
+        this.Nombre = Nombre;
+        this.Grupo = Grupo;
+        this.CantHorasResultado = CantHorasResultado;
+        this.Habilitado = Habilitado;
+        this.VCriticoAsociado = VCritico;
+        this.VReservadoAsociado = VReservado;
+        this.PeticionAsociada = PetAsociada;
+        this.ResultadoAsociado = ResultadoAsociado;
     }
 
 
@@ -105,13 +92,6 @@ public class Practica {
         Habilitado = habilitado;
     }
 
-    public Laboratorio getLaboratorioAsociado() {
-        return LaboratorioAsociado;
-    }
-
-    public void setLaboratorioAsociado(Laboratorio laboratorioAsociado) {
-        LaboratorioAsociado = laboratorioAsociado;
-    }
 
     public ArrayList<ValorCritico> getVCriticoAsociado() {
         return VCriticoAsociado;

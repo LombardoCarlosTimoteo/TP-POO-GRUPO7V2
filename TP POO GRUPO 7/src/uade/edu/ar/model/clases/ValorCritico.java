@@ -19,9 +19,10 @@ public class ValorCritico {
 
     //DEFINIR METODOS
         //CONSTRUCTOR
-            public ValorCritico(String Valor,TipoResultado TipoComparacion){
+            public ValorCritico(String Valor,TipoResultado TipoComparacion, int IDValorC){
                 this.Valor=Valor;
                 this.TipoComparacion=TipoComparacion;
+                this.IDValorC = IDValorC;
             }
 
     public ValorCritico(int idValorC, TipoResultado tipoComparacion, String valor, Practica practicaAsociada) {

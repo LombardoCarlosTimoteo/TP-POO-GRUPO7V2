@@ -18,8 +18,6 @@ public class Sucursal {
 
     private ArrayList<Paciente> PacienteAsociado;
 
-    private Laboratorio LaboratorioAsociado;
-
     private ArrayList<Peticion> PeticionAsociada;
 
     public Sucursal( int Numero,String Direccion,String ResponsableTecnico,boolean PeticonesCompletas) {
@@ -37,14 +35,6 @@ public class Sucursal {
 
     public void setPacienteAsociado(ArrayList<Paciente> pacienteAsociado) {
         PacienteAsociado = pacienteAsociado;
-    }
-
-    public Laboratorio getLaboratorioAsociado() {
-        return LaboratorioAsociado;
-    }
-
-    public void setLaboratorioAsociado(Laboratorio laboratorioAsociado) {
-        LaboratorioAsociado = laboratorioAsociado;
     }
 
     public ArrayList<Peticion> getPeticionAsociada() {

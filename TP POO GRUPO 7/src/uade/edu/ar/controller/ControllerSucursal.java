@@ -174,4 +174,31 @@ public void AgregarSucursal(SucursalDTO S){
         return new ModelDto(model.getId(),model.getName());
     }
 */
+
+
+    /*public Paciente(int DNI,String NombreUsuario,String Email,String Password,String Nombre,String Domicilio, Date FechaNacimiento,int Edad, boolean PeticonesCompletas,SexoPaciente Sexo){
+                this.DNI = DNI;
+                this.NombreUsuario= NombreUsuario;
+                this.Email=Email;
+                this.Password=Password;
+                this.Nombre=Nombre;
+                this.Domicilio=Domicilio;
+                this.FechaNacimiento=FechaNacimiento;
+                this.Edad=Edad;
+                this.PeticonesCompletas=PeticonesCompletas;
+                this.Sexo=Sexo;
+            }
+
+            public paciente (){}
+
+            crear paciente(parametros)
+            paciente p= new paciente
+            set
+            set
+            set
+            set
+            set
+
+
+            */
 }
