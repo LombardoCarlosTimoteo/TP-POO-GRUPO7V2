@@ -104,34 +104,35 @@ public void AgregarSucursal(SucursalDTO S){
     }
 
 
-    public ArrayList<Peticion> ListarPeticionesValorCritico(){
-        ArrayList lista = new ArrayList();
+    public ArrayList<Peticion> ListarPeticionesValorCritico(){ //TOMA UNA SUCURSAL, DE CADA SUCURSAL TOMA LAS PETICIONES, DE CADA PETICION TOMA LA LISTA DE PRACTICAS,
+                                                                // DE CADA PRACTICA TOMA LA LISTA DE RESULTADOS, DE CADA RESULTADO TOMA VALOR RESERVADO Y COMPARA SI ES RESERVADO PARA AGREGARLO A LA LISTA DE IDPRACTICAS QUE TIENEN RESULTADO VALOR RESULTADO. LO AGREGA A LA LISTA SI ESTE NO SE ENCUENTRA EN LA LISTA.
+        ArrayList lista = new ArrayList(); //CREAMOS LA LISTA A RETORNAR
 
-        for (int i = 0; i <= ListaSucursales.size(); i++){
+        for (int i = 0; i <= ListaSucursales.size(); i++){ //POR CADA SUCURSAL
             Sucursal sucursal = ListaSucursales.get(i);
             ArrayList Listapeticiones = sucursal.getPeticionAsociada();
 
-            for (int j = 0; i <= Listapeticiones.size(); j++){
+            for (int j = 0; i <= Listapeticiones.size(); j++){ //POR CADA PETICION DE LA SUCURSAL
                 Peticion peticion = (Peticion) Listapeticiones.get(j);
                 ArrayList Listapracticas = peticion.getPracticaAsociada();
 
-                for (int k = 0; k <= Listapracticas.size(); k++){
+                for (int k = 0; k <= Listapracticas.size(); k++){ //POR CADA PRACTICA DE LA PETICION
                     Practica practica = (Practica) Listapracticas.get(k);
                     ArrayList Listaresultado = practica.getResultadoAsociado();
                     ArrayList ListavalorReservado = practica.getVReservadoAsociado();
 
-                    for (int w = 0; w <= Listaresultado.size(); w++) {
+                    for (int w = 0; w <= Listaresultado.size(); w++) { //POR CADA RESULTADO DE LA PRACTICA
                         Resultado Resultado = (uade.edu.ar.model.clases.Resultado) Listaresultado.get(w);
                         String Valor = Resultado.getValor();
 
-                        for (int m = 0; m <= ListavalorReservado.size(); m++) {
+                        for (int m = 0; m <= ListavalorReservado.size(); m++) { //POR CADA VALOR RESERVADO DE LA PRACTICA
                             ValorReservado valorReservado = (ValorReservado) ListavalorReservado.get(m);
                             String comparacion = String.valueOf(valorReservado.getTipoComparacion());
 
                             String valorComparacion = valorReservado.getValor();
 
                             boolean hacer = false;
-
+                                                                //COMPARAMOS CADA VALOR DE RESULTADO CON CADA VALOR DE VALOR RESULTADO
                             if (comparacion == "Booleano") {
                                 if (Valor == valorComparacion) hacer = true;
                             } else if (comparacion == "Umbral") {
@@ -142,7 +143,7 @@ public void AgregarSucursal(SucursalDTO S){
                                 String[] listaRango = valorComparacion.split("-");
                                 if (Integer.parseInt(Valor) > Integer.parseInt(listaRango[0]) && Integer.parseInt(Valor) < Integer.parseInt(listaRango[1])) hacer = true;
                             }
-                            if (hacer && !lista.contains(practica.getIDPractica())) lista.add(practica.getIDPractica());
+                            if (hacer && !lista.contains(practica.getIDPractica())) lista.add(practica.getIDPractica()); //AGREGAMOS A LA LISTA LA ID DE LA PRACTICA CON VALOR RESERVADO POSITIVO Y QUE NO ESTE TODAVIA EN LA LISTA
                         }
                     }
                 }
