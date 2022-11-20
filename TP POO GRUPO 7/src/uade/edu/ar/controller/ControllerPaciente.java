@@ -1,5 +1,6 @@
 package uade.edu.ar.controller;
 import uade.edu.ar.dao.PacienteDAO;
+import uade.edu.ar.dto.ModelDto;
 import uade.edu.ar.dto.PacienteDTO;
 import uade.edu.ar.model.clases.Paciente;
 
@@ -16,7 +17,7 @@ public class ControllerPaciente {
     }
     private static ControllerPaciente CONTROLLERPACIENTE = null;
     private static PacienteDAO PacienteDAO;
-    private static List<Paciente> ListaPacientes;
+    public static ArrayList<Paciente> ListaPacientes;
 
 
     public void AgregarPaciente(PacienteDTO P){

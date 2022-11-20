@@ -1,6 +1,7 @@
 package uade.edu.ar.ui.table;
 
-import uade.edu.ar.dto.ModelDto;
+import uade.edu.ar.controller.ControllerPaciente;
+import uade.edu.ar.dto.PacienteDTO;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
@@ -8,7 +9,7 @@ import javax.swing.table.TableCellRenderer;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.List;
+import java.util.ArrayList;
 
 public class TableJButton extends JFrame {
 
@@ -18,7 +19,7 @@ public class TableJButton extends JFrame {
     private String[] columns = new String[3];
     private String[][] data = new String[3][3];
     JButton button = new JButton();
-    LaboratorioController controller =  null;
+    ControllerPaciente controller =  null;
 
     public TableJButton() throws Exception {
         setTitle("Model Table with button");
@@ -27,7 +28,7 @@ public class TableJButton extends JFrame {
         topPanel.setLayout(new BorderLayout());
         getContentPane().add(topPanel);
         columns = new String[] {"Id", "Name","Action"};
-        controller = LaboratorioController.getInstances();
+        controller = ControllerPaciente.getInstances();
         data = convertDtoToData(controller.getAll());
         DefaultTableModel model = new DefaultTableModel(data,columns);
         table = new JTable();
@@ -42,7 +43,7 @@ public class TableJButton extends JFrame {
                 {
                     public void actionPerformed(ActionEvent event)
                     {
-                        JOptionPane.showMessageDialog(null,"¿Quiere modificar el registro?");
+                        JOptionPane.showMessageDialog(null,"Â¿Quiere modificar el registro?");
                     }
                 }
         );
@@ -79,11 +80,11 @@ public class TableJButton extends JFrame {
         }
     }
 
-    public String[][] convertDtoToData(List<ModelDto> list) {
+    public String[][] convertDtoToData(ArrayList<PacienteDTO> list) {
         String[][] data = new String[list.size()][3];
         for (int i = 0; i < list.size(); i++) {
-            data[i][0] = list.get(i).getIdModel();
-            data[i][1] = list.get(i).getNameModel();
+            data[i][0] = Integer.toString(list.get(i).getDNI());
+            data[i][1] = list.get(i).getNombreUsuario();
         }
         return data;
     }

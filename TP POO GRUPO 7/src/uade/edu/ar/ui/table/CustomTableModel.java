@@ -1,16 +1,18 @@
 package uade.edu.ar.ui.table;
 
 import uade.edu.ar.dto.ModelDto;
+import uade.edu.ar.dto.PacienteDTO;
 
 import javax.swing.table.AbstractTableModel;
+import java.util.ArrayList;
 import java.util.List;
 
 public class CustomTableModel extends AbstractTableModel {
 
     private String[] columnNames = {"ID","Name"};
-    private List<ModelDto> dtoArrayList;
+    private ArrayList<PacienteDTO> dtoArrayList;
 
-    public CustomTableModel(List<ModelDto> list){
+    public CustomTableModel(ArrayList<PacienteDTO> list){
         this.dtoArrayList = list;
     }
 
@@ -31,10 +33,10 @@ public class CustomTableModel extends AbstractTableModel {
     public Object getValueAt(int row, int col) {
         Object temp = null;
         if (col == 0) {
-            temp = dtoArrayList.get(row).getIdModel();
+            temp = dtoArrayList.get(row).getDNI();
         }
         else if (col == 1) {
-            temp = dtoArrayList.get(row).getNameModel();
+            temp = dtoArrayList.get(row).getNombreUsuario();
         }
         return temp;
     }

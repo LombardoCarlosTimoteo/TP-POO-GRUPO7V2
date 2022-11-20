@@ -1,10 +1,15 @@
+import uade.edu.ar.controller.ControllerPaciente;
+
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.OutputStream;
+import java.io.PrintStream;
 
 public class App {
 
     public static void main(String[] args) throws FileNotFoundException {
         try {
-            LaboratorioController controller = LaboratorioController.getInstances();
+            ControllerPaciente controller = ControllerPaciente.getInstances();
         } catch (Exception e) {
             e.printStackTrace();
         }

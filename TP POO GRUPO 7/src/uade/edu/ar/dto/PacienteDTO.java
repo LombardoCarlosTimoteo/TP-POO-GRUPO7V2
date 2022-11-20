@@ -1,5 +1,6 @@
 package uade.edu.ar.dto;
 
+import uade.edu.ar.controller.ControllerPaciente;
 import uade.edu.ar.model.SexoPaciente;
 import uade.edu.ar.model.clases.Paciente;
 
@@ -129,7 +130,19 @@ public Paciente dtoToModel(PacienteDTO dto){
         Paciente p = new Paciente(dto.getDNI(), dto.getNombreUsuario(), dto.getEmail(), dto.getPassword(), dto.getNombre(), dto.getDomicilio(), dto.getFechaNacimiento(),dto.getEdad(), dto.isPeticonesCompletas(), dto.getSexo());
     return p;
 }
+//TUVE QUE AGREGAR ESTO PARA QUE EN CUSTOMTABLEMODEL NO TIRE ERROR LA FUNCION getValueAt
+    public PacienteDTO getByIdModel(int id) throws Exception {
+        for (Paciente model: ControllerPaciente.ListaPacientes) {//tuve que hacer que listapacientes sea publica
+            if (model.getDNI() == id){
+                return toDto(model);
+            }
+        }
+        return  null;
+    }
 
+    public static PacienteDTO toDto(Paciente model){
+        return new PacienteDTO(model.getDNI(),model.getNombreUsuario(),model.getEmail(),model.getPassword(),model.getNombre(),model.getDomicilio(),model.getFechaNacimiento(),model.getEdad(),model.isPeticonesCompletas(),model.getSexo());
+    }
 }
 
 

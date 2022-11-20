@@ -1,12 +1,14 @@
 package uade.edu.ar.ui.table;
 
-import uade.edu.ar.dto.ModelDto;
+import uade.edu.ar.controller.ControllerPaciente;
+import uade.edu.ar.dto.PacienteDTO;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import java.util.List;
 
 public class TableStandard extends JFrame implements ActionListener {
@@ -15,13 +17,13 @@ public class TableStandard extends JFrame implements ActionListener {
     private String[] columnNames = {"ID","Name"};
     private DefaultTableModel tableModel;
     private JTable table;
-    private LaboratorioController controller;
+    private ControllerPaciente controller;
 
     public TableStandard(String title) throws Exception {
         super(title);
         setBounds(10,10,400,300);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        controller = LaboratorioController.getInstances();
+        controller = ControllerPaciente.getInstances();
         data = convertDtoToData(controller.getAll());
         tableModel = new DefaultTableModel(data, columnNames);
         table = new JTable(tableModel);
@@ -34,11 +36,11 @@ public class TableStandard extends JFrame implements ActionListener {
     }
 
 
-    public Object[][] convertDtoToData(List<ModelDto> list) {
+    public Object[][] convertDtoToData(ArrayList<PacienteDTO> list) {
         Object[][] data = new Object[list.size()][3];
         for (int i = 0; i < list.size(); i++) {
-            data[i][0] = list.get(i).getIdModel();
-            data[i][1] = list.get(i).getNameModel();
+            data[i][0] = list.get(i).getDNI();
+            data[i][1] = list.get(i).getNombreUsuario();
         }
         return data;
     }

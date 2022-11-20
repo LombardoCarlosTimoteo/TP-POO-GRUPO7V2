@@ -19,8 +19,8 @@ public abstract class GenericDAO<T> {
         this.archivo.createNewFile();
     }
 
-    public List<T> getAll(Class<T> clase) throws Exception {
-        List<T> list = new ArrayList<T>();
+    public ArrayList<T> getAll(Class<T> clase) throws Exception {
+        ArrayList<T> list = new ArrayList<T>();
         FileReader f = new FileReader(archivo);
         BufferedReader b = new BufferedReader(f);
         Gson g = new Gson();

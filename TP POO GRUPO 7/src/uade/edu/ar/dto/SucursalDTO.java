@@ -1,4 +1,6 @@
 package uade.edu.ar.dto;
+import uade.edu.ar.model.clases.Paciente;
+import uade.edu.ar.model.clases.Peticion;
 
 import java.util.ArrayList;
 

@@ -1,5 +1,7 @@
 package uade.edu.ar.ui.table;
 
+import uade.edu.ar.controller.ControllerPaciente;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -9,13 +11,13 @@ public class CustomTable extends JFrame implements ActionListener {
 
     private CustomTableModel tableModel;
     private JTable table;
-    private LaboratorioController controller;
+    private ControllerPaciente controller;
 
     public CustomTable(String title) throws Exception {
         super(title);
         setBounds(10,10,400,300);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        controller = LaboratorioController.getInstances();
+        controller = ControllerPaciente.getInstances();
         tableModel = new CustomTableModel(controller.getAll());
         table = new JTable(tableModel);
         table.setAutoCreateRowSorter(true);
