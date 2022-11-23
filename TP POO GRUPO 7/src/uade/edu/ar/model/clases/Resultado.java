@@ -59,4 +59,23 @@ public class Resultado {
         this.PracticaAsociada = PracticaAsociada;
         this.PeticionAsociada = PeticionAsociada;
     }
+
+
+    public boolean EsReservado (String comparacion, String valorComparacion, String Valor, boolean hacer){
+
+
+        //COMPARAMOS CADA VALOR DE RESULTADO CON CADA VALOR DE VALOR RESULTADO
+        if (comparacion == "Booleano") {
+        if (Valor == valorComparacion) hacer = true;
+    } else if (comparacion == "Umbral") {
+        if (Integer.parseInt(Valor) > Integer.parseInt(valorComparacion)) hacer = true;
+    } else if (comparacion == "Lista") {
+        if (valorComparacion.contains(Valor)) hacer = true;
+    } else if (comparacion == "Rango") {
+        String[] listaRango = valorComparacion.split("-");
+        if (Integer.parseInt(Valor) > Integer.parseInt(listaRango[0]) && Integer.parseInt(Valor) < Integer.parseInt(listaRango[1])) hacer = true;
+    }
+        return hacer;
+}
+
 }
