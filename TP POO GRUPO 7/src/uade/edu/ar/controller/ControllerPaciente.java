@@ -2,7 +2,7 @@ package uade.edu.ar.controller;
 import uade.edu.ar.dao.PacienteDAO;
 import uade.edu.ar.dto.ModelDto;
 import uade.edu.ar.dto.PacienteDTO;
-import uade.edu.ar.model.clases.Paciente;
+import uade.edu.ar.model.clases.*;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -136,6 +136,45 @@ public class ControllerPaciente {
      }
 
 
+
+    public void mostrarResultadoPractica (String IDPractica, int DNI){
+        ArrayList<Resultado> ResultadosAMostrar = new ArrayList<Resultado>();
+        int posicion = getIndex(DNI);
+        boolean reservado = false;
+        for (Peticion P : ListaPacientes.get(posicion).getPeticionAsociada()){
+            for (int i = 0; i < ListaPacientes.get(posicion).getPeticionAsociada().size(); i++){
+                ArrayList<Practica> Listapractica = ListaPacientes.get(posicion).getPeticionAsociada().get(i).getPracticaAsociada();
+                for (Practica PR : Listapractica){
+                    if (PR.getIDPractica() == IDPractica){
+
+                        ArrayList<Resultado> ListaResultados =  PR.getResultadoAsociado();
+                        ArrayList<ValorReservado> ListaValoresReservados = PR.getVReservadoAsociado();
+
+
+                        for (Resultado R : ListaResultados) {
+                            String valor = R.getValor();
+
+
+                            for (ValorReservado VR : ListaValoresReservados) {
+                                String comparacion = String.valueOf(VR.getTipoComparacion());
+                                String valorComparacion = VR.getValor();
+                                reservado = R.EsReservado(comparacion, valorComparacion, valor, reservado);
+                                if(reservado) System.out.println(R.getIDResultado() + " El resultado debe ser retirado por sucursal");
+                                //Almacenar resultados
+                                else {
+                                    ResultadosAMostrar.add(R);
+                                }
+                            }
+
+                        }
+                    }
+                }
+            }
+        }
+        for (Resultado R : ResultadosAMostrar){
+            System.out.println(R.getIDResultado() + R.getValor());
+        }
+    }
 
 
 

@@ -29,13 +29,6 @@ public void ModificarSucursal(int Numero, SucursalDTO SDTO){
     getSucursales().get(i).setPeticonesCompletas(SDTO.isPeticonesCompletas());
 }
 
-public void EliminarSucursal(int Numero){
-    int i=0;
-    while (getSucursales().get(i).getNumero() == Numero) {
-        i++;}
-    getSucursales().remove(i);
-}
-
 public void AgregarSucursal(SucursalDTO S){
     getSucursales().add(S);
     }
@@ -127,22 +120,15 @@ public void AgregarSucursal(SucursalDTO S){
 
                         for (int m = 0; m <= ListavalorReservado.size(); m++) { //POR CADA VALOR RESERVADO DE LA PRACTICA
                             ValorReservado valorReservado = (ValorReservado) ListavalorReservado.get(m);
+
                             String comparacion = String.valueOf(valorReservado.getTipoComparacion());
 
                             String valorComparacion = valorReservado.getValor();
 
                             boolean hacer = false;
-                                                                //COMPARAMOS CADA VALOR DE RESULTADO CON CADA VALOR DE VALOR RESULTADO
-                            if (comparacion == "Booleano") {
-                                if (Valor == valorComparacion) hacer = true;
-                            } else if (comparacion == "Umbral") {
-                                if (Integer.parseInt(Valor) > Integer.parseInt(valorComparacion)) hacer = true;
-                            } else if (comparacion == "Lista") {
-                                if (valorComparacion.contains(Valor)) hacer = true;
-                            } else if (comparacion == "Rango") {
-                                String[] listaRango = valorComparacion.split("-");
-                                if (Integer.parseInt(Valor) > Integer.parseInt(listaRango[0]) && Integer.parseInt(Valor) < Integer.parseInt(listaRango[1])) hacer = true;
-                            }
+
+                            hacer = Resultado.EsReservado(comparacion, valorComparacion, Valor, hacer); //COMPARAMOS CADA VALOR DE RESULTADO CON CADA VALOR DE VALOR RESULTADO
+
                             if (hacer && !lista.contains(practica.getIDPractica())) lista.add(practica.getIDPractica()); //AGREGAMOS A LA LISTA LA ID DE LA PRACTICA CON VALOR RESERVADO POSITIVO Y QUE NO ESTE TODAVIA EN LA LISTA
                         }
                     }
@@ -151,4 +137,24 @@ public void AgregarSucursal(SucursalDTO S){
         }
         return lista;
     }
+
+    public void EliminarSucursal(int ID){
+        int posicion = getIndex(ID);
+        boolean peticion = ListaSucursales.get(posicion).isPeticonesCompletas();
+        Sucursal Sucursal = (Sucursal) ListaSucursales.get(posicion);
+        if(posicion != -1 && !peticion){
+            ListaSucursales.remove(posicion);
+            for (Paciente P : Sucursal.getPacienteAsociado()){
+                P.setSucursalAsociada(ListaSucursales.get(0));
+            }
+            System.out.println("Sucursal eliminada correctamente y todos sus pacientes han sido derivados.");
+        }
+        else System.out.println("La sucursal no puede ser eliminada ya que o no existe o tiene peticiones completas.");
+    }
+
+
+
+
+
+
 }
