@@ -151,10 +151,4 @@ public void AgregarSucursal(SucursalDTO S){
         }
         else System.out.println("La sucursal no puede ser eliminada ya que o no existe o tiene peticiones completas.");
     }
-
-
-
-
-
-
 }
