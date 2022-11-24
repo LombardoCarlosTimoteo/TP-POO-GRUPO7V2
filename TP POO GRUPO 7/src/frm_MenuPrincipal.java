@@ -19,6 +19,7 @@ public class frm_MenuPrincipal extends JFrame {
         setContentPane(panelPrincipal);
         asociarEventos();
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        dispose();
     }
 
 
@@ -50,6 +51,7 @@ public class frm_MenuPrincipal extends JFrame {
                 frm_Sucursal pantalla = new frm_Sucursal();
                 desktopPaneEmbebido.add(pantalla);
                 pantalla.setVisible(true);
+
             }
         });
 
@@ -59,6 +61,7 @@ public class frm_MenuPrincipal extends JFrame {
                 frm_ValorCritico pantalla = new frm_ValorCritico();
                 desktopPaneEmbebido.add(pantalla);
                 pantalla.setVisible(true);
+
             }
         });
 
@@ -68,6 +71,7 @@ public class frm_MenuPrincipal extends JFrame {
                 frm_ValorReservado pantalla = new frm_ValorReservado();
                 desktopPaneEmbebido.add(pantalla);
                 pantalla.setVisible(true);
+
             }
         });
     }
