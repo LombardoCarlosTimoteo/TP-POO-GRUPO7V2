@@ -1,0 +1,63 @@
+import uade.edu.ar.dto.PacienteDTO;
+import uade.edu.ar.model.SexoPaciente;
+
+import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.time.LocalDate;
+
+public class frm_AltaPaciente extends JInternalFrame{
+    private JTextField textFieldDNI;
+    private JTextField textFieldSexo;
+    private JTextField textFieldEdad;
+    private JTextField textFieldFechaNacimiento;
+    private JTextField textFieldNombreUsuario;
+    private JTextField textFieldContraseña;
+    private JTextField textFieldNombreyApellido;
+    private JTextField textFieldDomicilio;
+    private JPanel panelPrincipal;
+    private JButton aceptarButton;
+    private JButton cancelarButton;
+    private JTextField textFieldMail;
+    private PacienteDTO PDTO = new PacienteDTO( 0,"","","","","", "",0,false, SexoPaciente.Hombre);
+
+    private frm_AltaPaciente self;
+    public frm_AltaPaciente() {
+        super("Paciente");
+        setBorder(null);
+        ((javax.swing.plaf.basic.BasicInternalFrameUI) this.getUI()).setNorthPane(null);
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        setContentPane(panelPrincipal);
+        asociarEventos();
+    }
+
+    public void asociarEventos(){
+        this.self = this;
+        aceptarButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                int DNI = Integer.parseInt(textFieldDNI.getText());
+                String NombreApellido = textFieldNombreyApellido.getText();
+                String contraseña = textFieldContraseña.getText();
+                String domicilio = textFieldDomicilio.getText();
+
+                String fechaNacimiento = textFieldFechaNacimiento.getText();
+                int edad = Integer.parseInt(textFieldEdad.getText());
+                String mail = textFieldMail.getText();
+
+                String NombreUsuario = textFieldNombreUsuario.getText();
+                /*SexoPaciente sexo = textFieldSexo.getText();*/
+
+                PDTO.setDNI(DNI);
+                PDTO.setEdad(edad);
+                PDTO.setDomicilio(domicilio);
+                PDTO.setFechaNacimiento(fechaNacimiento);
+                PDTO.setEmail(mail);
+                //PDTO.setSexo(sexo);
+                PDTO.setPassword(contraseña);
+                PDTO.setNombre(NombreApellido);
+                PDTO.setNombreUsuario(NombreUsuario);
+            }
+        });
+    }
+}
