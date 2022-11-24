@@ -181,7 +181,14 @@ public class ControllerPaciente {
         }
     }
 
-
+ public void GuardarPaciente(PacienteDTO dto) throws Exception {
+        int pos = getIndex(dto.getDNI());
+        if (pos != -1){
+            return;
+        }
+        Paciente pac = toModel(dto);
+        this.PacienteDAO.save(pac);
+ }
 
 }
     /*

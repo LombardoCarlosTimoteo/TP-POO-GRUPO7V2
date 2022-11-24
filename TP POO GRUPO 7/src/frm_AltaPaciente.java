@@ -1,3 +1,4 @@
+import uade.edu.ar.controller.ControllerPaciente;
 import uade.edu.ar.dto.PacienteDTO;
 import uade.edu.ar.model.SexoPaciente;
 
@@ -21,8 +22,10 @@ public class frm_AltaPaciente extends JInternalFrame{
     private JTextField textFieldMail;
     private PacienteDTO PDTO = new PacienteDTO( 0,"","","","","", "",0,false, SexoPaciente.Hombre);
 
+    private ControllerPaciente controllerPaciente = ControllerPaciente.getInstances();
+
     private frm_AltaPaciente self;
-    public frm_AltaPaciente() {
+    public frm_AltaPaciente() throws Exception {
         super("Paciente");
         setBorder(null);
         ((javax.swing.plaf.basic.BasicInternalFrameUI) this.getUI()).setNorthPane(null);
@@ -57,6 +60,12 @@ public class frm_AltaPaciente extends JInternalFrame{
                 PDTO.setPassword(contraseña);
                 PDTO.setNombre(NombreApellido);
                 PDTO.setNombreUsuario(NombreUsuario);
+
+                try {
+                    controllerPaciente.GuardarPaciente(PDTO);
+                } catch (Exception ex) {
+                    throw new RuntimeException(ex);
+                }
             }
         });
     }

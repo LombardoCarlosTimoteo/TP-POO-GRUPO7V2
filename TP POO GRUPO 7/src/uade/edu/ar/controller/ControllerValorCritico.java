@@ -90,6 +90,6 @@ public class ControllerValorCritico {
         return new ValorCritico(dto.getIDValorC(), dto.getTipoComparacion(), dto.getValor(), dto.getPracticaAsociada());
     }
     public static ValorCriticoDTO toDto(ValorCritico model){
-        return new ValorCriticoDTO(model.getIDValorC(),model.getValor(),model.getTipoComparacion(),model.getPracticaAsociada());
+        return new ValorCriticoDTO(model.getIDValorC(),model.getValor(),model.getTipoComparacion());
     }
 }

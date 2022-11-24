@@ -19,9 +19,9 @@ public class ValorReservadoDTO {
         //CONSTRUCTOR
         public ValorReservadoDTO() {}
 
-    public ValorReservadoDTO(String valor, TipoResultado tipoComparacion, Practica practicaAsociada) {
+    public ValorReservadoDTO(String valor, TipoResultado tipoComparacion, int IDValorR) {
         this.setValor(valor);
-        this.setPracticaAsociada(practicaAsociada);
+        this.setIDValorR(IDValorR);
         this.setTipoComparacion(tipoComparacion);
     }
 

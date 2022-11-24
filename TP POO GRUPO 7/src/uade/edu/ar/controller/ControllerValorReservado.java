@@ -108,7 +108,7 @@ public class ControllerValorReservado {
     //PROBLEMA ACA
 
     public static ValorReservadoDTO toDto(ValorReservado model){
-        return new ValorReservadoDTO(model.getValor(),model.getTipoComparacion(),model.getPracticaAsociada());
+        return new ValorReservadoDTO(model.getValor(),model.getTipoComparacion(),model.getIDValorR());
     }
     public ValorReservadoDTO getByIdModel(int id) throws Exception {
         for (ValorReservado model: ListaValoresR) {

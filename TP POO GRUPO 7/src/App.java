@@ -7,7 +7,7 @@ import java.io.PrintStream;
 
 public class App {
 
-    public static void main(String[] args) throws FileNotFoundException {
+    public static void main(String[] args) throws Exception {
         try {
             ControllerPaciente controller = ControllerPaciente.getInstances();
         } catch (Exception e) {

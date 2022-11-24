@@ -12,7 +12,7 @@ public class frm_MenuPrincipal extends JFrame {
     private JButton sucursalButton;
     private JPanel desktopPaneEmbebido;
 
-    public frm_MenuPrincipal() {
+    public frm_MenuPrincipal() throws Exception {
         super("Menu Principal");
         setSize(800, 800);
         setLocationRelativeTo(null);
@@ -23,7 +23,7 @@ public class frm_MenuPrincipal extends JFrame {
     }
 
 
-    private void asociarEventos() {
+    private void asociarEventos() throws Exception {
 
         frm_Paciente PantallaPaciente = new frm_Paciente();
         frm_Sucursal PantallaSucursal = new frm_Sucursal();

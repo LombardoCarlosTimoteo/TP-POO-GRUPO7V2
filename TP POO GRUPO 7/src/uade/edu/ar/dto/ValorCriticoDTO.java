@@ -13,7 +13,7 @@ public class ValorCriticoDTO {
 
     private Practica PracticaAsociada;
 
-    public ValorCriticoDTO(int idValorC, String valor, TipoResultado tipoComparacion, Practica practicaAsociada) {
+    public ValorCriticoDTO(int idValorC, String valor, TipoResultado tipoComparacion) {
     }
 
     //DEFINIR METODOS

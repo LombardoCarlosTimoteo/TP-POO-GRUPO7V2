@@ -13,4 +13,5 @@ public class frm_ValorReservado extends JInternalFrame{
         setContentPane(panelPrincipal);
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
     }
+
 }
