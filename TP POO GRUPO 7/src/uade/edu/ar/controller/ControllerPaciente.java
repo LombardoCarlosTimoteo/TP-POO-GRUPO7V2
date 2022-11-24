@@ -85,7 +85,7 @@ public class ControllerPaciente {
         }
     }
 
-    private int getIndex(int id){
+    private static int getIndex(int id){
         for (int i=0;i<ListaPacientes.size();i++){
             if(ListaPacientes.get(i).getDNI() == id){
                 return i;
@@ -125,7 +125,7 @@ public class ControllerPaciente {
         return new PacienteDTO(model.getDNI(),model.getNombreUsuario(),model.getEmail(),model.getPassword(),model.getNombre(),model.getDomicilio(),model.getFechaNacimiento(),model.getEdad(),model.isPeticonesCompletas(),model.getSexo());
     }
 
-    public void EliminarPaciente(int id){
+    public static void EliminarPaciente(int id){
         int posicion = getIndex(id);
         boolean peticion = ListaPacientes.get(posicion).isPeticonesCompletas();
         if(posicion != -1 && !peticion){
