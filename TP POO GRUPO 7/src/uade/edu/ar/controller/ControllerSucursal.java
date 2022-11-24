@@ -112,14 +112,14 @@ public void AgregarSucursal(SucursalDTO S){
                 for (int k = 0; k <= Listapracticas.size(); k++){ //POR CADA PRACTICA DE LA PETICION
                     Practica practica = (Practica) Listapracticas.get(k);
                     ArrayList Listaresultado = practica.getResultadoAsociado();
-                    ArrayList ListavalorReservado = practica.getVReservadoAsociado();
+                    ArrayList ListavalorCritico = practica.getVCriticoAsociado();
 
                     for (int w = 0; w <= Listaresultado.size(); w++) { //POR CADA RESULTADO DE LA PRACTICA
                         Resultado Resultado = (uade.edu.ar.model.clases.Resultado) Listaresultado.get(w);
                         String Valor = Resultado.getValor();
 
-                        for (int m = 0; m <= ListavalorReservado.size(); m++) { //POR CADA VALOR RESERVADO DE LA PRACTICA
-                            ValorReservado valorReservado = (ValorReservado) ListavalorReservado.get(m);
+                        for (int m = 0; m <= ListavalorCritico.size(); m++) { //POR CADA VALOR RESERVADO DE LA PRACTICA
+                            ValorReservado valorReservado = (ValorReservado) ListavalorCritico.get(m);
 
                             String comparacion = String.valueOf(valorReservado.getTipoComparacion());
 

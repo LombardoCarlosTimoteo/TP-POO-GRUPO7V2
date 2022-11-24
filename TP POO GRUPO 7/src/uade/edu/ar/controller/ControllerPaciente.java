@@ -138,9 +138,13 @@ public class ControllerPaciente {
 
 
     public void mostrarResultadoPractica (String IDPractica, int DNI){
+
         ArrayList<Resultado> ResultadosAMostrar = new ArrayList<Resultado>();
+
         int posicion = getIndex(DNI);
+
         boolean reservado = false;
+
         for (Peticion P : ListaPacientes.get(posicion).getPeticionAsociada()){
             for (int i = 0; i < ListaPacientes.get(posicion).getPeticionAsociada().size(); i++){
                 ArrayList<Practica> Listapractica = ListaPacientes.get(posicion).getPeticionAsociada().get(i).getPracticaAsociada();
@@ -156,6 +160,7 @@ public class ControllerPaciente {
 
 
                             for (ValorReservado VR : ListaValoresReservados) {
+                                reservado = false;
                                 String comparacion = String.valueOf(VR.getTipoComparacion());
                                 String valorComparacion = VR.getValor();
                                 reservado = R.EsReservado(comparacion, valorComparacion, valor, reservado);

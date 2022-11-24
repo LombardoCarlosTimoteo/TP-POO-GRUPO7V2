@@ -13,7 +13,7 @@ public class frm_Sucursal extends JInternalFrame{
         super("Sucursal");
         setBorder(null);
         ((javax.swing.plaf.basic.BasicInternalFrameUI)this.getUI()).setNorthPane(null);
-
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setContentPane(panelPrincipal);
         altaButton.addActionListener(new ActionListener() {
             @Override

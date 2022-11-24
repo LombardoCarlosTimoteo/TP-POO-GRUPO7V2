@@ -13,7 +13,7 @@ public class frm_Usuario extends JInternalFrame {
         super("Usuario");
         setBorder(null);
         ((javax.swing.plaf.basic.BasicInternalFrameUI)this.getUI()).setNorthPane(null);
-
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setContentPane(panel1);
     }
 }

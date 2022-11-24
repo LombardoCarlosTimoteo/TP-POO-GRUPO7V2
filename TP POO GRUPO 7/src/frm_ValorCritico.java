@@ -10,7 +10,7 @@ public class frm_ValorCritico extends JInternalFrame{
         super("Valor Critico");
         setBorder(null);
         ((javax.swing.plaf.basic.BasicInternalFrameUI)this.getUI()).setNorthPane(null);
-
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setContentPane(panelPrincipal);
     }
 }

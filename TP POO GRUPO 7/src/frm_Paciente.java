@@ -11,7 +11,7 @@ public class frm_Paciente extends JInternalFrame {
         super("Paciente");
         setBorder(null);
         ((javax.swing.plaf.basic.BasicInternalFrameUI)this.getUI()).setNorthPane(null);
-
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setContentPane(panelPrincipal);
     }
 }

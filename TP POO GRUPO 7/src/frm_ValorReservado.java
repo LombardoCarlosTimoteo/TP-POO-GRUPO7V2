@@ -11,5 +11,6 @@ public class frm_ValorReservado extends JInternalFrame{
         setBorder(null);
         ((javax.swing.plaf.basic.BasicInternalFrameUI)this.getUI()).setNorthPane(null);
         setContentPane(panelPrincipal);
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
     }
 }
