@@ -64,7 +64,12 @@ public class frm_ModificacionPaciente extends JInternalFrame{
                 PDTO.setPassword(contraseña);
                 PDTO.setNombre(NombreApellido);
                 PDTO.setNombreUsuario(NombreUsuario);
-               controllerPaciente.ModificarPaciente(DNI,PDTO);
+                try {
+                    controllerPaciente.ModificarPaciente(DNI,PDTO);
+                } catch (Exception ex) {
+                    throw new RuntimeException(ex);
+                }
+                textFieldContraseña.setText(null);
             }
         });
     }

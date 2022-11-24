@@ -125,7 +125,7 @@ public abstract class GenericDAO<T> {
         return wasDeleted;
     }
 
-    public boolean update(T obj) throws Exception {
+    public boolean update(T obj, T objNuevo) throws Exception {
         Boolean wasUpdate = false;
         try {
             BufferedReader b = new BufferedReader(new FileReader(archivo));
@@ -137,7 +137,7 @@ public abstract class GenericDAO<T> {
             while ((line = b.readLine()) != null) {
                 JsonObject jsonObject = parser.parse(line).getAsJsonObject();
                 if (g.fromJson(jsonObject, clase).equals(obj)) {
-                    line = g.toJson(obj);
+                    line = g.toJson(objNuevo);
                     wasUpdate = true;
                 }
                 inputBuffer.append(line);

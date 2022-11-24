@@ -24,19 +24,47 @@ public class ControllerPaciente {
         getPacientes().add(P);
     }
 
-    public void ModificarPaciente (int DNI, PacienteDTO PDTO){
-        int i=0;
-        while (getPacientes().get(i).getDNI() == DNI) {
-            i++;}
-            getPacientes().get(i).setNombreUsuario(PDTO.getNombreUsuario());
-            getPacientes().get(i).setEmail(PDTO.getEmail());
-            getPacientes().get(i).setPassword(PDTO.getPassword());
-            getPacientes().get(i).setNombre(PDTO.getNombre());
-            getPacientes().get(i).setDomicilio(PDTO.getDomicilio());
-            getPacientes().get(i).setFechaNacimiento(PDTO.getFechaNacimiento());
-            getPacientes().get(i).setEdad(PDTO.getEdad());
-            getPacientes().get(i).setPeticonesCompletas(PDTO.isPeticonesCompletas());
-            getPacientes().get(i).setSexo(PDTO.getSexo());
+    public void ModificarPaciente (int DNI, PacienteDTO PDTO) throws Exception {
+
+        ListaPacientes = PacienteDAO.getAll(Paciente.class);
+
+        int pos = getIndex(PDTO.getDNI());
+
+        if (pos == -1) {
+            System.out.println("El usuario no existe en la base de datos.");
+            return;
+        }
+
+
+        ListaPacientes.remove(pos);
+        System.out.println("Paciente eliminado exitosamente");
+        this.PacienteDAO.delete(DNI, "DNI");
+        this.PacienteDAO.save(toModel(PDTO));
+
+
+
+
+//        PacienteDTO PacACambiar = PacienteDTO.toDto(ListaPacientes.get(pos));
+//        PacienteDTO PacCambiado = PacienteDTO.toDto(ListaPacientes.get(pos));
+//
+//        PacCambiado.setNombreUsuario(PDTO.getNombreUsuario());
+//        PacCambiado.setEmail(PDTO.getEmail());
+//        PacCambiado.setPassword(PDTO.getPassword());
+//        PacCambiado.setNombre(PDTO.getNombre());
+//        PacCambiado.setDomicilio(PDTO.getDomicilio());
+//        PacCambiado.setFechaNacimiento(PDTO.getFechaNacimiento());
+//        PacCambiado.setEdad(PDTO.getEdad());
+//        PacCambiado.setPeticonesCompletas(PDTO.isPeticonesCompletas());
+//        PacCambiado.setSexo(PDTO.getSexo());
+//
+//
+//
+//
+//
+//        this.PacienteDAO.update(toModel(PacACambiar), toModel(PacCambiado));
+
+        System.out.println("El paciente se actualizo correctamente");
+
 
     }
 
