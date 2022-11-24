@@ -13,5 +13,8 @@ public class App {
         } catch (Exception e) {
             e.printStackTrace();
         }
+
+        frm_MenuPrincipal win = new frm_MenuPrincipal();
+        win.setVisible(true);
     }
 }
