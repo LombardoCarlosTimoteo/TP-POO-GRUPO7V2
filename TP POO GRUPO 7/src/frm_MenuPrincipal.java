@@ -31,6 +31,7 @@ public class frm_MenuPrincipal extends JFrame {
         frm_ValorReservado PantallaValorR = new frm_ValorReservado();
         frm_Usuario PantallaUsuario = new frm_Usuario();
         frm_Inicio PantallaInicio = new frm_Inicio();
+        frm_AltaPaciente PantallAltaPaciente = new frm_AltaPaciente();
 
 
 
@@ -41,6 +42,7 @@ public class frm_MenuPrincipal extends JFrame {
         desktopPaneEmbebido.add(PantallaValorR);
         desktopPaneEmbebido.add(PantallaUsuario);
         desktopPaneEmbebido.add(PantallaInicio);
+        desktopPaneEmbebido.add(PantallAltaPaciente);
 
         PantallaInicio.setVisible(true);
         PantallaPaciente.setVisible(false);
@@ -48,6 +50,7 @@ public class frm_MenuPrincipal extends JFrame {
         PantallaValorR.setVisible(false);
         PantallaValorC.setVisible(false);
         PantallaSucursal.setVisible(false);
+        PantallAltaPaciente.setVisible(false);
 
         revalidate();
         repaint();

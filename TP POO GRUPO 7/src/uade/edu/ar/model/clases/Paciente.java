@@ -4,6 +4,7 @@ import uade.edu.ar.dto.PacienteDTO;
 import uade.edu.ar.model.SexoPaciente;
 import uade.edu.ar.controller.ControllerPaciente;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -23,7 +24,7 @@ public class Paciente {
 
     private String Domicilio;
 
-    private Date FechaNacimiento;
+    private String FechaNacimiento;
 
     private int Edad;
 
@@ -41,7 +42,7 @@ public class Paciente {
 
     private ControllerPaciente ControllerPaciente;
 
-     public Paciente(int DNI,String NombreUsuario,String Email,String Password,String Nombre,String Domicilio, Date FechaNacimiento,int Edad, boolean PeticonesCompletas,SexoPaciente Sexo){
+     public Paciente(int DNI,String NombreUsuario,String Email,String Password,String Nombre,String Domicilio, String FechaNacimiento,int Edad, boolean PeticonesCompletas,SexoPaciente Sexo){
                 this.DNI = DNI;
                 this.NombreUsuario= NombreUsuario;
                 this.Email=Email;
@@ -105,11 +106,11 @@ public class Paciente {
         Domicilio = domicilio;
     }
 
-    public Date getFechaNacimiento() {
+    public String getFechaNacimiento() {
         return FechaNacimiento;
     }
 
-    public void setFechaNacimiento(Date fechaNacimiento) {
+    public void setFechaNacimiento(String fechaNacimiento) {
         FechaNacimiento = fechaNacimiento;
     }
 
