@@ -3,9 +3,11 @@ import uade.edu.ar.dao.PacienteDAO;
 import uade.edu.ar.dao.UsuarioDAO;
 
 import uade.edu.ar.dto.PacienteDTO;
+import uade.edu.ar.dto.SucursalDTO;
 import uade.edu.ar.dto.UsuarioDTO;
 import uade.edu.ar.model.clases.Paciente;
 import uade.edu.ar.model.clases.Peticion;
+import uade.edu.ar.model.clases.Sucursal;
 import uade.edu.ar.model.clases.Usuario;
 
 import java.util.ArrayList;
@@ -105,7 +107,14 @@ private ControllerUsuario(){}
         }
         return -1;
     }
-
+    public void GuardarUsuario(UsuarioDTO dto) throws Exception {
+        int pos = getIndex(dto.getDNI());
+        if (pos != -1){
+            return;
+        }
+        Usuario US = toModel(dto);
+        this.UsuarioDAO.save(US);
+    }
 
     }
 

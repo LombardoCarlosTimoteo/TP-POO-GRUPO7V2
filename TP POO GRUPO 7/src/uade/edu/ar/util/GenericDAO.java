@@ -93,7 +93,7 @@ public abstract class GenericDAO<T> {
         }
     }
 
-    public boolean delete(int id) throws Exception {
+    public boolean delete(int id, String aBuscar) throws Exception {
         boolean wasDeleted = false;
         try {
             BufferedReader b = new BufferedReader(new FileReader(archivo));
@@ -103,7 +103,7 @@ public abstract class GenericDAO<T> {
 
             while ((line = b.readLine()) != null) {
                 JsonObject jsonObject = parser.parse(line).getAsJsonObject();
-                if (Integer.parseInt(jsonObject.get("id").toString()) != id) {
+                if (Integer.parseInt(jsonObject.get(aBuscar).toString()) != id) {
                     inputBuffer.append(line);
                     inputBuffer.append('\n');
                 } else {

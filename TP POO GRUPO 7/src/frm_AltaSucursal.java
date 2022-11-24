@@ -1,3 +1,4 @@
+import uade.edu.ar.controller.ControllerSucursal;
 import uade.edu.ar.dto.*;
 
 import javax.swing.*;
@@ -15,7 +16,9 @@ public class frm_AltaSucursal extends JFrame{
 
     private SucursalDTO S = new SucursalDTO( 0,"","",false);
 
-    public frm_AltaSucursal() {
+    private ControllerSucursal controllerSucursal = ControllerSucursal.getInstances();
+
+    public frm_AltaSucursal() throws Exception {
         this.self = this;
 
         guardarButton.addActionListener(new ActionListener() {
@@ -28,6 +31,13 @@ public class frm_AltaSucursal extends JFrame{
                 self.S.setNumero(ID);
                 self.S.setDireccion(Direc);
                 self.S.setResponsableTecnico(Reesp);
+
+                try {
+                    controllerSucursal.GuardarSucursal(S);
+                } catch (Exception ex) {
+                    throw new RuntimeException(ex);
+                }
+
             }
 
 

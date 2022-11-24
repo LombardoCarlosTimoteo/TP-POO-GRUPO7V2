@@ -32,6 +32,12 @@ public class frm_AltaPaciente extends JInternalFrame{
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setContentPane(panelPrincipal);
         asociarEventos();
+        cancelarButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                dispose();
+            }
+        });
     }
 
     public void asociarEventos(){

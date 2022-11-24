@@ -134,4 +134,14 @@ public class ControllerValorReservado {
         }
         return -1;
     }
+
+    public void GuardarValorReservado(ValorReservadoDTO dto) throws Exception {
+        int pos = getIndex(dto.getIDValorR());
+        if (pos != -1){
+            return;
+        }
+        ValorReservado VR = toModel(dto);
+        this.ValorReservadoDAO.save(VR);
+    }
+
 }

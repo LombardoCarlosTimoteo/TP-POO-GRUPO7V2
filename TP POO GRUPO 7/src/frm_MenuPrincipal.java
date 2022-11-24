@@ -60,6 +60,7 @@ public class frm_MenuPrincipal extends JFrame {
         Paciente.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                PantallaInicio.setVisible(false);
                 PantallaPaciente.setVisible(true);
                 PantallaUsuario.setVisible(false);
                 PantallaValorR.setVisible(false);
@@ -73,6 +74,7 @@ public class frm_MenuPrincipal extends JFrame {
         usuarioButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                PantallaInicio.setVisible(false);
                 PantallaPaciente.setVisible(false);
                 PantallaUsuario.setVisible(true);
                 PantallaValorR.setVisible(false);
@@ -86,6 +88,7 @@ public class frm_MenuPrincipal extends JFrame {
         sucursalButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                PantallaInicio.setVisible(false);
                 PantallaPaciente.setVisible(false);
                 PantallaUsuario.setVisible(false);
                 PantallaValorR.setVisible(false);
@@ -99,6 +102,7 @@ public class frm_MenuPrincipal extends JFrame {
         valorCríticoButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                PantallaInicio.setVisible(false);
                 PantallaPaciente.setVisible(false);
                 PantallaUsuario.setVisible(false);
                 PantallaValorR.setVisible(false);
@@ -113,6 +117,7 @@ public class frm_MenuPrincipal extends JFrame {
         valorReservadoButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                PantallaInicio.setVisible(false);
                 PantallaPaciente.setVisible(false);
                 PantallaUsuario.setVisible(false);
                 PantallaValorR.setVisible(true);

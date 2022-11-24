@@ -1,4 +1,5 @@
 package uade.edu.ar.controller;
+import uade.edu.ar.dto.PacienteDTO;
 import uade.edu.ar.dto.SucursalDTO;
 import uade.edu.ar.dao.SucursalDAO;
 import uade.edu.ar.model.clases.*;
@@ -150,5 +151,14 @@ public void AgregarSucursal(SucursalDTO S){
             System.out.println("Sucursal eliminada correctamente y todos sus pacientes han sido derivados.");
         }
         else System.out.println("La sucursal no puede ser eliminada ya que o no existe o tiene peticiones completas.");
+    }
+
+    public void GuardarSucursal(SucursalDTO dto) throws Exception {
+        int pos = getIndex(dto.getNumero());
+        if (pos != -1){
+            return;
+        }
+        Sucursal Suc = toModel(dto);
+        this.SucursalDAO.save(Suc);
     }
 }

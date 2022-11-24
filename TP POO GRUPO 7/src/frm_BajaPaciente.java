@@ -19,6 +19,12 @@ public class frm_BajaPaciente extends  JInternalFrame{
         setContentPane(panelPrincipal);
         asociarEventos();
 
+        cancelarButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                dispose();
+            }
+        });
     }
 
     private void asociarEventos(){
@@ -29,7 +35,11 @@ public class frm_BajaPaciente extends  JInternalFrame{
             public void actionPerformed(ActionEvent e) {
                 int DNI = Integer.parseInt(textFieldDNI.getText());
 
-                ControllerPaciente.EliminarPaciente(DNI);
+                try {
+                    ControllerPaciente.EliminarPaciente(DNI);
+                } catch (Exception ex) {
+                    throw new RuntimeException(ex);
+                }
             }
         });
     }

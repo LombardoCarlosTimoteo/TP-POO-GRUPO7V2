@@ -63,9 +63,16 @@ public class ControllerPaciente {
 */
 
     public void addPaciente(PacienteDTO dto) throws Exception {
+        ListaPacientes = PacienteDAO.getAll(Paciente.class);
         if(getByIdModel(dto.getDNI()) == null){
-            PacienteDAO.save(toModel(dto));
+
+            if (getIndex(dto.getDNI()) == -1){
+                PacienteDAO.save(toModel(dto));
+                System.out.println("El paciente se registro correctamente");
+            }
+            else System.out.println("El Paciente ya esta registrado");
         }
+        else System.out.println("El Paciente ya esta registrado");
     }
 
 
@@ -125,14 +132,19 @@ public class ControllerPaciente {
         return new PacienteDTO(model.getDNI(),model.getNombreUsuario(),model.getEmail(),model.getPassword(),model.getNombre(),model.getDomicilio(),model.getFechaNacimiento(),model.getEdad(),model.isPeticonesCompletas(),model.getSexo());
     }
 
-    public static void EliminarPaciente(int id){
+    public static void EliminarPaciente(int id) throws Exception {
         int posicion = getIndex(id);
-        boolean peticion = ListaPacientes.get(posicion).isPeticonesCompletas();
-        if(posicion != -1 && !peticion){
-            ListaPacientes.remove(posicion);
-            System.out.println("Paciente eliminado exitosamente");
+
+        if(posicion != -1){
+            boolean peticion = ListaPacientes.get(posicion).isPeticonesCompletas();
+            if (!peticion) {
+                ListaPacientes.remove(posicion);
+                System.out.println("Paciente eliminado exitosamente");
+                PacienteDAO.delete(id, "DNI");
+            }
+            else System.out.println("El paciente no puede ser eliminado debido a que tiene alguna peticion completa.");
         }
-        else System.out.println("El paciente no puede ser eliminado ya que o no existe o tiene peticiones completas.");
+        else System.out.println("El paciente no puede ser eliminado ya que no esta registrado en la base de datos.");
      }
 
 
@@ -186,8 +198,17 @@ public class ControllerPaciente {
         if (pos != -1){
             return;
         }
-        Paciente pac = toModel(dto);
-        this.PacienteDAO.save(pac);
+
+     ListaPacientes = PacienteDAO.getAll(Paciente.class);
+     if(getByIdModel(dto.getDNI()) == null){
+
+         if (getIndex(dto.getDNI()) == -1){
+             this.PacienteDAO.save(toModel(dto));
+             System.out.println("El paciente se registro correctamente");
+         }
+         else System.out.println("El Paciente ya esta registrado");
+     }
+     else System.out.println("El Paciente ya esta registrado");
  }
 
 }

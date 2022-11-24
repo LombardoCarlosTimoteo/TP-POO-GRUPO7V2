@@ -1,8 +1,10 @@
 package uade.edu.ar.controller;
 
 import uade.edu.ar.dao.ValorCriticoDAO;
+import uade.edu.ar.dto.SucursalDTO;
 import uade.edu.ar.dto.ValorCriticoDTO;
 import uade.edu.ar.model.TipoResultado;
+import uade.edu.ar.model.clases.Sucursal;
 import uade.edu.ar.model.clases.ValorCritico;
 
 import java.io.File;
@@ -92,4 +94,15 @@ public class ControllerValorCritico {
     public static ValorCriticoDTO toDto(ValorCritico model){
         return new ValorCriticoDTO(model.getIDValorC(),model.getValor(),model.getTipoComparacion());
     }
+
+    public void GuardarValorCritico(ValorCriticoDTO dto) throws Exception {
+        int pos = getIndex(dto.getIDValorC());
+        if (pos != -1){
+            return;
+        }
+        ValorCritico VC = toModel(dto);
+        this.ValorCriticoDAO.save(VC);
+    }
+
+
 }

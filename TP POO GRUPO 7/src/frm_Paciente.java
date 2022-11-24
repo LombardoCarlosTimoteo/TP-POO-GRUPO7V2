@@ -23,21 +23,23 @@ public class frm_Paciente extends JInternalFrame {
     private void asociarEventos() throws Exception {
         frm_AltaPaciente PantallaAltaPaciente = new frm_AltaPaciente();
         frm_BajaPaciente PantallaBajaPaciente = new frm_BajaPaciente();
-    // frm_ModificacionPaciente PantallaModificacionPaciente = new frm_ModificacionPaciente();
-      //  frm_obtenerResultadosDePracticaPaciente PantallaobtenerResultadosDePracticaPaciente = new frm_obtenerResultadosDePracticaPaciente();
+        frm_ModificacionPaciente PantallaModificacionPaciente = new frm_ModificacionPaciente();
+        frm_obtenerResultadosDePracticaPaciente PantallaobtenerResultadosDePracticaPaciente = new frm_obtenerResultadosDePracticaPaciente();
 
 
         desktopPaneEmbebidoPaciente.add(PantallaAltaPaciente);
         desktopPaneEmbebidoPaciente.add(PantallaBajaPaciente);
-        //desktopPaneEmbebidoPaciente.add(PantallaModificacionPaciente);
-        //desktopPaneEmbebidoPaciente.add(PantallaobtenerResultadosDePracticaPaciente);
+        desktopPaneEmbebidoPaciente.add(PantallaModificacionPaciente);
+        desktopPaneEmbebidoPaciente.add(PantallaobtenerResultadosDePracticaPaciente);
 
 
         PantallaAltaPaciente.setVisible(false);
         PantallaBajaPaciente.setVisible(false);
-     //PantallaModificacionPaciente.setVisible(false);
-       // PantallaobtenerResultadosDePracticaPaciente.setVisible(false);
+        PantallaModificacionPaciente.setVisible(false);
+        PantallaobtenerResultadosDePracticaPaciente.setVisible(false);
 
+        revalidate();
+        repaint();
 
         altaButton.addActionListener(new ActionListener() {
 
@@ -45,8 +47,8 @@ public class frm_Paciente extends JInternalFrame {
             public void actionPerformed(ActionEvent e) {
                 PantallaAltaPaciente.setVisible(true);
                 PantallaBajaPaciente.setVisible(false);
-           //   PantallaModificacionPaciente.setVisible(false);
-             //   PantallaobtenerResultadosDePracticaPaciente.setVisible(false);
+                PantallaModificacionPaciente.setVisible(false);
+                PantallaobtenerResultadosDePracticaPaciente.setVisible(false);
 
                 revalidate();
                 repaint();
@@ -57,34 +59,36 @@ public class frm_Paciente extends JInternalFrame {
             public void actionPerformed(ActionEvent e) {
                 PantallaAltaPaciente.setVisible(false);
                 PantallaBajaPaciente.setVisible(true);
-               //PantallaModificacionPaciente.setVisible(false);
-               // PantallaobtenerResultadosDePracticaPaciente.setVisible(false);
+                PantallaModificacionPaciente.setVisible(false);
+                PantallaobtenerResultadosDePracticaPaciente.setVisible(false);
 
 
                 revalidate();
                 repaint();
             }
         });
-    /* modificaciónButton.addActionListener(new ActionListener() {
+        modificaciónButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 PantallaAltaPaciente.setVisible(false);
                 PantallaBajaPaciente.setVisible(false);
-               PantallaModificacionPaciente.setVisible(true);
-
+                PantallaModificacionPaciente.setVisible(true);
+                PantallaobtenerResultadosDePracticaPaciente.setVisible(false);
                 revalidate();
                 repaint();
 
             }
-        });*/
-      /*  obtenerResultadosDePracticaButton.addActionListener(new ActionListener() {
+        });
+        obtenerResultadosDePracticaButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 PantallaobtenerResultadosDePracticaPaciente.setVisible(true);
                 PantallaAltaPaciente.setVisible(false);
                 PantallaBajaPaciente.setVisible(false);
                 PantallaModificacionPaciente.setVisible(false);
+                revalidate();
+                repaint();
 
             }
-        });*/
+        });
     }}
