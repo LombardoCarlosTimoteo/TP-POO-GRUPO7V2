@@ -25,42 +25,84 @@ public class frm_MenuPrincipal extends JFrame {
 
     private void asociarEventos() {
 
+        frm_Paciente PantallaPaciente = new frm_Paciente();
+        frm_Sucursal PantallaSucursal = new frm_Sucursal();
+        frm_ValorCritico PantallaValorC = new frm_ValorCritico();
+        frm_ValorReservado PantallaValorR = new frm_ValorReservado();
+        frm_Usuario PantallaUsuario = new frm_Usuario();
+        frm_Inicio PantallaInicio = new frm_Inicio();
+
+
+
+
+        desktopPaneEmbebido.add(PantallaPaciente);
+        desktopPaneEmbebido.add(PantallaSucursal);
+        desktopPaneEmbebido.add(PantallaValorC);
+        desktopPaneEmbebido.add(PantallaValorR);
+        desktopPaneEmbebido.add(PantallaUsuario);
+        desktopPaneEmbebido.add(PantallaInicio);
+
+        PantallaInicio.setVisible(true);
+        PantallaPaciente.setVisible(false);
+        PantallaUsuario.setVisible(false);
+        PantallaValorR.setVisible(false);
+        PantallaValorC.setVisible(false);
+        PantallaSucursal.setVisible(false);
+
+        revalidate();
+        repaint();
+
+
+        //frm_Paciente PantallaPaciente = new frm_Paciente();
         Paciente.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                frm_Paciente pantalla = new frm_Paciente();
-                desktopPaneEmbebido.add(pantalla);
-                pantalla.setVisible(true);
-
+                PantallaPaciente.setVisible(true);
+                PantallaUsuario.setVisible(false);
+                PantallaValorR.setVisible(false);
+                PantallaValorC.setVisible(false);
+                PantallaSucursal.setVisible(false);
+                revalidate();
+                repaint();
             }
         });
 
         usuarioButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
-                frm_Usuario pantalla = new frm_Usuario();
-                desktopPaneEmbebido.add(pantalla);
-                pantalla.setVisible(true);
+                PantallaPaciente.setVisible(false);
+                PantallaUsuario.setVisible(true);
+                PantallaValorR.setVisible(false);
+                PantallaValorC.setVisible(false);
+                PantallaSucursal.setVisible(false);
+                revalidate();
+                repaint();
             }
         });
 
         sucursalButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                frm_Sucursal pantalla = new frm_Sucursal();
-                desktopPaneEmbebido.add(pantalla);
-                pantalla.setVisible(true);
-
+                PantallaPaciente.setVisible(false);
+                PantallaUsuario.setVisible(false);
+                PantallaValorR.setVisible(false);
+                PantallaValorC.setVisible(false);
+                PantallaSucursal.setVisible(true);
+                revalidate();
+                repaint();
             }
         });
 
         valorCríticoButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                frm_ValorCritico pantalla = new frm_ValorCritico();
-                desktopPaneEmbebido.add(pantalla);
-                pantalla.setVisible(true);
+                PantallaPaciente.setVisible(false);
+                PantallaUsuario.setVisible(false);
+                PantallaValorR.setVisible(false);
+                PantallaValorC.setVisible(true);
+                PantallaSucursal.setVisible(false);
+                revalidate();
+                repaint();
 
             }
         });
@@ -68,9 +110,13 @@ public class frm_MenuPrincipal extends JFrame {
         valorReservadoButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                frm_ValorReservado pantalla = new frm_ValorReservado();
-                desktopPaneEmbebido.add(pantalla);
-                pantalla.setVisible(true);
+                PantallaPaciente.setVisible(false);
+                PantallaUsuario.setVisible(false);
+                PantallaValorR.setVisible(true);
+                PantallaValorC.setVisible(false);
+                PantallaSucursal.setVisible(false);
+                revalidate();
+                repaint();
 
             }
         });
