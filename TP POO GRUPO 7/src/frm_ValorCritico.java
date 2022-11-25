@@ -9,14 +9,15 @@ public class frm_ValorCritico extends JInternalFrame{
     private JButton bajaButton;
     private JPanel desktopPaneEmbebidoValorCritico;
 
-    public frm_ValorCritico() {
+    public frm_ValorCritico() throws Exception{
         super("Valor Critico");
         setBorder(null);
         ((javax.swing.plaf.basic.BasicInternalFrameUI)this.getUI()).setNorthPane(null);
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setContentPane(panelPrincipal);
+        asociarEventos();
     }
-    public void asociarEventos() throws Exception {
+    public void asociarEventos()  throws Exception{
         frm_AltaValorCritico PantallaAltaVC = new frm_AltaValorCritico();
         frm_BajaValorCritico PantallaBajaVC = new frm_BajaValorCritico();// el error era por el throws Exception del BAja y alta
         frm_ModificacionValorCritico PantallaModificacionVC = new frm_ModificacionValorCritico();
@@ -48,8 +49,8 @@ public class frm_ValorCritico extends JInternalFrame{
             @Override
             public void actionPerformed(ActionEvent e) {
                 PantallaInicio.setVisible(false);
-                PantallaAltaVC.setVisible(true);
-                PantallaBajaVC.setVisible(false);
+                PantallaAltaVC.setVisible(false);
+                PantallaBajaVC.setVisible(true);
                 PantallaModificacionVC.setVisible(false);
                 revalidate();
                 repaint();

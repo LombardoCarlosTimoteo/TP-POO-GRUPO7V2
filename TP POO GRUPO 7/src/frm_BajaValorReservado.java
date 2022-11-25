@@ -15,7 +15,7 @@ public class frm_BajaValorReservado extends JInternalFrame {
 
     ValorReservadoDTO VRDTO = new ValorReservadoDTO("", TipoResultado.Booleano, 0);
 
-    public frm_BajaValorReservado() {
+    public frm_BajaValorReservado() throws Exception {
         super("Baja Paciente");
         setBorder(null);
         ((javax.swing.plaf.basic.BasicInternalFrameUI) this.getUI()).setNorthPane(null);
@@ -31,6 +31,8 @@ public class frm_BajaValorReservado extends JInternalFrame {
         cancelarButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+            dispose();
+                System.out.println("cancelar");
 
             }
         });
