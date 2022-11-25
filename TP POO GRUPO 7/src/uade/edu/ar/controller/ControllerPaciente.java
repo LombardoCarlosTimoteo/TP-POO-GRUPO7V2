@@ -79,17 +79,6 @@ public class ControllerPaciente {
         return CONTROLLERPACIENTE;
     }
 
-/*
-    public static synchronized Controller getInstances() throws Exception {
-        if(CONTROLLER == null) {
-            CONTROLLER = new Controller();
-            modelDao = new ModelDao(Model.class,getPathOutModel(Model.class.getSimpleName()));
-            modelList = modelDao.getAll(Model.class);
-        }
-        return CONTROLLER;
-    }
-*/
-
     public void addPaciente(PacienteDTO dto) throws Exception {
         ListaPacientes = PacienteDAO.getAll(Paciente.class);
         if(getByIdModel(dto.getDNI()) == null){
@@ -136,16 +125,6 @@ public class ControllerPaciente {
         }
         return dtoList;
     }
-
-
-    /*public List<ModelDto> getAll() throws Exception {
-        List<ModelDto> dtoList = new ArrayList<>();
-        for (Model model : modelDao.getAll(Model.class)) {
-            dtoList.add(toDto(model));
-        }
-        return dtoList;
-    }*/
-
 
     private static String getPathOutModel(String name){
         String dir = "C:/IOO/";
