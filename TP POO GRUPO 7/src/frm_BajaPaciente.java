@@ -37,5 +37,12 @@ public class frm_BajaPaciente extends  JInternalFrame{
                 }
             }
         });
+
+        cancelarButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                dispose();
+            }
+        });
     }
 }

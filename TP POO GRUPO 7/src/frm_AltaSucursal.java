@@ -13,6 +13,16 @@ public class frm_AltaSucursal extends  JInternalFrame{
     private JButton aceptarButton;
     private JButton cancelarButton;
     private frm_AltaSucursal self;
+    private SucursalDTO SDTO = new SucursalDTO(0, "", "", false);
+    private ControllerSucursal controllerSucursal;
+
+    {
+        try {
+            controllerSucursal = ControllerSucursal.getInstances();
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
 
     public frm_AltaSucursal() {
         super("Alta Sucursal");

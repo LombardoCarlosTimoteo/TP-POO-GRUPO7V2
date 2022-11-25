@@ -121,7 +121,7 @@ public class ControllerPaciente {
                 PacienteDAO.delete(id, "DNI");
                 System.out.println("Paciente eliminado exitosamente");
             }
-            else System.out.println("El paciente no puede ser eliminado debido a que tiene alguna peticion completa.");
+            else System.out.println("El paciente no puede ser eliminado debido a que tiene al menos una peticion completa.");
         }
         else System.out.println("El paciente no puede ser eliminado ya que no esta registrado en la base de datos.");
      }

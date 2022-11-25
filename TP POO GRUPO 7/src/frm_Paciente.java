@@ -25,14 +25,15 @@ public class frm_Paciente extends JInternalFrame {
         frm_BajaPaciente PantallaBajaPaciente = new frm_BajaPaciente();
         frm_ModificacionPaciente PantallaModificacionPaciente = new frm_ModificacionPaciente();
         frm_obtenerResultadosDePracticaPaciente PantallaobtenerResultadosDePracticaPaciente = new frm_obtenerResultadosDePracticaPaciente();
-
+        frm_InicioPaciente PantallaInicio = new frm_InicioPaciente();
 
         desktopPaneEmbebidoPaciente.add(PantallaAltaPaciente);
         desktopPaneEmbebidoPaciente.add(PantallaBajaPaciente);
         desktopPaneEmbebidoPaciente.add(PantallaModificacionPaciente);
         desktopPaneEmbebidoPaciente.add(PantallaobtenerResultadosDePracticaPaciente);
+        desktopPaneEmbebidoPaciente.add(PantallaInicio);
 
-
+        PantallaInicio.setVisible(true);
         PantallaAltaPaciente.setVisible(false);
         PantallaBajaPaciente.setVisible(false);
         PantallaModificacionPaciente.setVisible(false);
@@ -45,6 +46,7 @@ public class frm_Paciente extends JInternalFrame {
 
             @Override
             public void actionPerformed(ActionEvent e) {
+                PantallaInicio.setVisible(false);
                 PantallaAltaPaciente.setVisible(true);
                 PantallaBajaPaciente.setVisible(false);
                 PantallaModificacionPaciente.setVisible(false);
@@ -57,6 +59,7 @@ public class frm_Paciente extends JInternalFrame {
         bajaButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                PantallaInicio.setVisible(false);
                 PantallaAltaPaciente.setVisible(false);
                 PantallaBajaPaciente.setVisible(true);
                 PantallaModificacionPaciente.setVisible(false);
@@ -70,6 +73,7 @@ public class frm_Paciente extends JInternalFrame {
         modificaciónButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                PantallaInicio.setVisible(false);
                 PantallaAltaPaciente.setVisible(false);
                 PantallaBajaPaciente.setVisible(false);
                 PantallaModificacionPaciente.setVisible(true);
@@ -82,6 +86,7 @@ public class frm_Paciente extends JInternalFrame {
         obtenerResultadosDePracticaButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                PantallaInicio.setVisible(false);
                 PantallaobtenerResultadosDePracticaPaciente.setVisible(true);
                 PantallaAltaPaciente.setVisible(false);
                 PantallaBajaPaciente.setVisible(false);

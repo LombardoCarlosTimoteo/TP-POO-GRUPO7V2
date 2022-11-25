@@ -20,21 +20,79 @@ public class frm_Sucursal extends JInternalFrame{
     }
 
     private void asociarEventos(){
-//        frm_AltaSucursal PantallaAltaSucursal = new frm_AltaSucursal();
-//        frm_BajaSucursal PantallaBajaSucursal = new frm_AltaSucursal();
-//        frm_ModificacionSucursal PantallaModificacionSucursal = new frm_AltaSucursal();
-//        frm_ListarValoresCriticos PantallaListarValoresCriticos = new frm_ListarValoresCriticos();
 
-//        desktopPaneEmbebidoPaciente.add(PantallaAltaSucursal);
-//        desktopPaneEmbebidoPaciente.add(PantallaBajaSucursal);
-//        desktopPaneEmbebidoPaciente.add(PantallaModificacionSucursal);
-//        desktopPaneEmbebidoPaciente.add(PantallaListarValoresCriticos);
+        frm_AltaSucursal PantallaAltaSucursal = new frm_AltaSucursal();
+        frm_BajaSucursal PantallaBajaSucursal = new frm_BajaSucursal();
+        frm_ModificacionSucursal PantallaModificacionSucursal = new frm_ModificacionSucursal();
+        frm_ListarValoresCriticosSucursal PantallaListarValoresCriticos = new frm_ListarValoresCriticosSucursal();
+        frm_InicioSucursal PantallaInicio = new frm_InicioSucursal();
+
+        desktopPaneEmbebido.add(PantallaInicio);
+        desktopPaneEmbebido.add(PantallaAltaSucursal);
+        desktopPaneEmbebido.add(PantallaBajaSucursal);
+        desktopPaneEmbebido.add(PantallaModificacionSucursal);
+        desktopPaneEmbebido.add(PantallaListarValoresCriticos);
+
+        PantallaInicio.setVisible(true);
+        PantallaAltaSucursal.setVisible(false);
+        PantallaBajaSucursal.setVisible(false);
+        PantallaModificacionSucursal.setVisible(false);
+        PantallaListarValoresCriticos.setVisible(false);
+        revalidate();
+        repaint();
+
+
 
 
         altaButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                PantallaInicio.setVisible(false);
+                PantallaAltaSucursal.setVisible(true);
+                PantallaBajaSucursal.setVisible(false);
+                PantallaModificacionSucursal.setVisible(false);
+                PantallaListarValoresCriticos.setVisible(false);
+                revalidate();
+                repaint();
+            }
+        });
 
+        bajaButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                PantallaInicio.setVisible(false);
+                PantallaAltaSucursal.setVisible(false);
+                PantallaBajaSucursal.setVisible(true);
+                PantallaModificacionSucursal.setVisible(false);
+                PantallaListarValoresCriticos.setVisible(false);
+                revalidate();
+                repaint();
+            }
+        });
+
+        modificaciónButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                PantallaInicio.setVisible(false);
+                PantallaAltaSucursal.setVisible(false);
+                PantallaBajaSucursal.setVisible(false);
+                PantallaModificacionSucursal.setVisible(true);
+                PantallaListarValoresCriticos.setVisible(false);
+                revalidate();
+                repaint();
+            }
+        });
+
+        listarPeticionesConValorButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                PantallaInicio.setVisible(false);
+                PantallaAltaSucursal.setVisible(false);
+                PantallaBajaSucursal.setVisible(false);
+                PantallaModificacionSucursal.setVisible(false);
+                PantallaListarValoresCriticos.setVisible(true);
+                revalidate();
+                repaint();
             }
         });
     }

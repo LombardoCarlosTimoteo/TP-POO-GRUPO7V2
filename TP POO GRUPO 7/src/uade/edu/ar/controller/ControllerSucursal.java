@@ -21,14 +21,6 @@ public class ControllerSucursal {
 
     private static SucursalDAO SucursalDAO;
 
-public void ModificarSucursal(int Numero, SucursalDTO SDTO){
-    int i=0;
-    while (getSucursales().get(i).getNumero() == Numero) {
-        i++;}
-    getSucursales().get(i).setDireccion(SDTO.getDireccion());
-    getSucursales().get(i).setResponsableTecnico(SDTO.getResponsableTecnico());
-    getSucursales().get(i).setPeticonesCompletas(SDTO.isPeticonesCompletas());
-}
 
 public void AgregarSucursal(SucursalDTO S){
     getSucursales().add(S);
@@ -141,16 +133,25 @@ public void AgregarSucursal(SucursalDTO S){
 
     public void EliminarSucursal(int ID){
         int posicion = getIndex(ID);
-        boolean peticion = ListaSucursales.get(posicion).isPeticonesCompletas();
+
         Sucursal Sucursal = (Sucursal) ListaSucursales.get(posicion);
-        if(posicion != -1 && !peticion){
-            ListaSucursales.remove(posicion);
-            for (Paciente P : Sucursal.getPacienteAsociado()){
-                P.setSucursalAsociada(ListaSucursales.get(0));
+        if(posicion != -1){
+            boolean peticion = ListaSucursales.get(posicion).isPeticonesCompletas();
+            if (!peticion) {
+                ListaSucursales.remove(posicion);
+//                for (Paciente P : Sucursal.getPacienteAsociado()){
+//                    P.setSucursalAsociada(ListaSucursales.get(0));
+//                }
+                try {
+                    SucursalDAO.delete(ID, "Numero");
+                } catch (Exception e) {
+                    throw new RuntimeException(e);
+                }
+                System.out.println("Sucursal eliminada correctamente y todos sus pacientes han sido derivados.");
             }
-            System.out.println("Sucursal eliminada correctamente y todos sus pacientes han sido derivados.");
+            else System.out.println("La sucursal no puede ser eliminada debido a que tiene al menos una peticion completa");
         }
-        else System.out.println("La sucursal no puede ser eliminada ya que o no existe o tiene peticiones completas.");
+        else System.out.println("La sucursal no puede ser eliminada ya que no esta registrado en la base de datos.");
     }
 
     public void GuardarSucursal(SucursalDTO dto) throws Exception {
@@ -158,7 +159,43 @@ public void AgregarSucursal(SucursalDTO S){
         if (pos != -1){
             return;
         }
-        Sucursal Suc = toModel(dto);
-        this.SucursalDAO.save(Suc);
+        ListaSucursales = SucursalDAO.getAll(Sucursal.class);
+        if(getByIdModel(dto.getNumero()) == null){
+
+            if (getIndex(dto.getNumero()) == -1){
+                this.SucursalDAO.save(toModel(dto));
+                System.out.println("La sucursal se registro correctamente");
+            }
+            else System.out.println("La sucursal ya esta registrado");
+        }
+        else System.out.println("La sucursal ya esta registrado");
+    }
+
+    public void ModificarSucursal(int NRO, SucursalDTO SDTO){
+        try {
+            ListaSucursales = SucursalDAO.getAll(Sucursal.class);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+
+        int pos = getIndex(SDTO.getNumero());
+
+        if (pos == -1){
+            System.out.println("La sucursal no existe en la base de datos");
+            return;
+        }
+        ListaSucursales.remove(pos);
+        try {
+            this.SucursalDAO.delete(NRO, "Numero");
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+        try {
+            this.SucursalDAO.save(SDTO);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+        System.out.println("La sucursal se actualizo correctamente.");
+
     }
 }

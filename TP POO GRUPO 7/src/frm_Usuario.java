@@ -3,9 +3,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class frm_Usuario extends JInternalFrame {
-
     private JPanel panel1;
-
     private JPanel panelPrincipal;
     private JButton modificaciónButton;
     private JButton bajaButton;
@@ -25,13 +23,14 @@ public class frm_Usuario extends JInternalFrame {
         frm_AltaUsuario PantallaAltaUsuario = new frm_AltaUsuario();
         frm_BajaUsuario PantallaBajaUsuario = new frm_BajaUsuario();
         frm_ModificacionUsuario PantallaModificacionUsuario = new frm_ModificacionUsuario();
+        frm_InicioUsuario PantallaInicio = new frm_InicioUsuario();
 
-
+        desktopPaneEmbebido.add(PantallaInicio);
         desktopPaneEmbebido.add(PantallaAltaUsuario);
         desktopPaneEmbebido.add(PantallaBajaUsuario);
         desktopPaneEmbebido.add(PantallaModificacionUsuario);
 
-
+        PantallaInicio.setVisible(true);
         PantallaAltaUsuario.setVisible(false);
         PantallaBajaUsuario.setVisible(false);
         PantallaModificacionUsuario.setVisible(false);
@@ -42,6 +41,7 @@ public class frm_Usuario extends JInternalFrame {
         altaButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                PantallaInicio.setVisible(false);
                 PantallaAltaUsuario.setVisible(true);
                 PantallaBajaUsuario.setVisible(false);
                 PantallaModificacionUsuario.setVisible(false);
@@ -55,6 +55,7 @@ public class frm_Usuario extends JInternalFrame {
                 PantallaAltaUsuario.setVisible(false);
                 PantallaBajaUsuario.setVisible(true);
                 PantallaModificacionUsuario.setVisible(false);
+                PantallaInicio.setVisible(false);
                 revalidate();
                 repaint();
             }
@@ -65,6 +66,7 @@ public class frm_Usuario extends JInternalFrame {
                 PantallaAltaUsuario.setVisible(false);
                 PantallaBajaUsuario.setVisible(false);
                 PantallaModificacionUsuario.setVisible(true);
+                PantallaInicio.setVisible(false);
                 revalidate();
                 repaint();
             }
