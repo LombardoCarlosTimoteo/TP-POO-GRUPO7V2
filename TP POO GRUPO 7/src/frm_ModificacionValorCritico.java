@@ -2,7 +2,7 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class frm_ModificacionValorCritico {
+public class frm_ModificacionValorCritico extends JInternalFrame{
     private JPanel panelPrincipal;
     private JTextField textFieldValor;
     private JTextField textFieldIDValorCritico;

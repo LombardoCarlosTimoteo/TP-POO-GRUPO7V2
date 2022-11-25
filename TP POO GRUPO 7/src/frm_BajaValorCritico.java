@@ -1,8 +1,12 @@
+import uade.edu.ar.controller.ControllerValorCritico;
+import uade.edu.ar.dto.ValorCriticoDTO;
+import uade.edu.ar.model.TipoResultado;
+
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class frm_BajaValorCritico {
+public class frm_BajaValorCritico extends JInternalFrame{
     private JTextField textFieldIDValorCritico;
     private JButton eliminarButton;
     private JButton cancelarButton;
@@ -28,13 +32,14 @@ public class frm_BajaValorCritico {
         cancelarButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                dispose();
             }
         });
         eliminarButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                int ID = Integer.parseInt(textFieldIDValorCritico.getText());
+                controllerValorCritico.EliminarVC(ID);
             }
         });
     }

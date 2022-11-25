@@ -104,5 +104,25 @@ public class ControllerValorCritico {
         this.ValorCriticoDAO.save(VC);
     }
 
+    public void EliminarVC(int id){
+        try {
+            ListaValoresCriticos = ValorCriticoDAO.getAll(ValorCritico.class);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+        int posicion = getIndex(id);
 
-}
+        if(posicion != -1){
+                ListaValoresCriticos.remove(posicion);
+            try {
+                ValorCriticoDAO.delete(id, "IDValorC");
+            } catch (Exception e) {
+                throw new RuntimeException(e);
+            }
+
+            System.out.println("Valor Critico eliminado exitosamente");
+            }
+        else System.out.println("El Valor Critico no puede ser eliminado ya que no esta registrado en la base de datos.");
+        }
+
+    }
