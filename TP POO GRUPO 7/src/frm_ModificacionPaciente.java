@@ -4,7 +4,6 @@ import uade.edu.ar.controller.ControllerPaciente;
 import uade.edu.ar.dto.PacienteDTO;
 import uade.edu.ar.model.SexoPaciente;
 
-import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 public class frm_ModificacionPaciente extends JInternalFrame{
@@ -17,9 +16,9 @@ public class frm_ModificacionPaciente extends JInternalFrame{
     private JTextField textFieldNombreApellido;
     private JTextField textFieldContraseña;
     private JTextField textFieldEdad;
-    private JTextField textFieldSexo;
     private JButton aceptarButton;
     private JButton cancelarButton;
+    private JComboBox comboBoxSexoPaciente;
     private PacienteDTO PDTO = new PacienteDTO( 0,"","","","","", "",0,false, SexoPaciente.Hombre);
     private ControllerPaciente controllerPaciente = ControllerPaciente.getInstances();
     private frm_ModificacionPaciente self;
@@ -53,9 +52,11 @@ public class frm_ModificacionPaciente extends JInternalFrame{
                 String fechaNacimiento = textFieldFechaNacimiento.getText();
                 int edad = Integer.parseInt(textFieldEdad.getText());
                 String mail = textFieldMail.getText();
-
+                String sexo = comboBoxSexoPaciente.getSelectedItem().toString();
                 String NombreUsuario = textFieldNombreUsuario.getText();
-                /*SexoPaciente sexo = textFieldSexo.getText();*/
+                if(sexo == "Hombre")PDTO.setSexo(SexoPaciente.Hombre);
+                else {PDTO.setSexo(SexoPaciente.Mujer);}
+
                 PDTO.setDNI(DNI);
                 PDTO.setEdad(edad);
                 PDTO.setDomicilio(domicilio);
