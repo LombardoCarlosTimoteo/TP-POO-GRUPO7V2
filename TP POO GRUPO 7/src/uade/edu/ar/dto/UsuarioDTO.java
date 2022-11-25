@@ -24,7 +24,7 @@ public class UsuarioDTO {
 
     private String Domicilio;
 
-    private Date FechaNacimiento;
+    private String FechaNacimiento;
 
     private RolUsuario Rol;
 
@@ -36,7 +36,7 @@ public class UsuarioDTO {
     private ArrayList<Peticion> PeticionAsociada;
 
 
-    public UsuarioDTO(int DNI, String NombreUsuario, String Email, String Password, String Nombre, String Domicilio, Date FechaNacimiento, RolUsuario Rol) {
+    public UsuarioDTO(int DNI, String NombreUsuario, String Email, String Password, String Nombre, String Domicilio, String FechaNacimiento, RolUsuario Rol) {
         this.DNI = DNI;
         this.NombreUsuario = NombreUsuario;
         this.Email = Email;
@@ -95,11 +95,11 @@ public class UsuarioDTO {
         Domicilio = domicilio;
     }
 
-    public Date getFechaNacimiento() {
+    public String getFechaNacimiento() {
         return FechaNacimiento;
     }
 
-    public void setFechaNacimiento(Date fechaNacimiento) {
+    public void setFechaNacimiento(String fechaNacimiento) {
         FechaNacimiento = fechaNacimiento;
     }
 

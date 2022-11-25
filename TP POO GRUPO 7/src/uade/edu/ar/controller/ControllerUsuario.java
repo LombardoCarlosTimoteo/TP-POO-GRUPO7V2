@@ -31,23 +31,55 @@ private ControllerUsuario(){}
 
 
     public void ModificarUsuario (int DNI, UsuarioDTO UDTO){
-        int i=0;
-        while (getUsuarios().get(i).getDNI() == DNI) {
-            i++;}
-        getUsuarios().get(i).setDNI(UDTO.getDNI());
-        getUsuarios().get(i).setNombreUsuario(UDTO.getNombreUsuario());
-        getUsuarios().get(i).setEmail(UDTO.getEmail());
-        getUsuarios().get(i).setPassword(UDTO.getPassword());
-        getUsuarios().get(i).setNombre(UDTO.getNombre());
-        getUsuarios().get(i).setFechaNacimiento(UDTO.getFechaNacimiento());
-        getUsuarios().get(i).setRol(UDTO.getRol());
+
+        try {
+            ListaUsuarios = UsuarioDAO.getAll(Usuario.class);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+
+        int pos = getIndex(UDTO.getDNI());
+
+        if (pos == -1) {
+            System.out.println("El usuario no existe en la base de datos.");
+            return;
+        }
+        ListaUsuarios.remove(pos);
+        try {
+            this.UsuarioDAO.delete(DNI, "DNI");
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+        try {
+            this.UsuarioDAO.save(toModel(UDTO));
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+        System.out.println("El usuario se actualizo correctamente");
     }
 
     public void AgregarUsuario (UsuarioDTO U){
         getUsuarios().add(U);
     }
-    public void EliminarUsuario (int U){
-        getUsuarios().remove(U);
+
+    public static void EliminarUsuario (int U){
+        int posicion = getIndex(U);
+        if(posicion != -1){
+            try {
+                ListaUsuarios = UsuarioDAO.getAll();
+            } catch (Exception e) {
+                throw new RuntimeException(e);
+            }
+            ListaUsuarios.remove(posicion);
+
+            try {
+                UsuarioDAO.delete(U, "DNI");
+            } catch (Exception e) {
+                throw new RuntimeException(e);
+            }
+            System.out.println("Usuario eliminado exitosamente");
+        }
+        else System.out.println("El Usuario no puede ser eliminado ya que no esta registrado en la base de datos.");
     }
 
     public static synchronized ControllerUsuario getInstances() throws Exception {
@@ -99,7 +131,7 @@ private ControllerUsuario(){}
         }
     }
 
-    private int getIndex(int id){
+    private static int getIndex(int id){
         for (int i=0;i<ListaUsuarios.size();i++){
             if(ListaUsuarios.get(i).getDNI() == id){
                 return i;
@@ -112,8 +144,18 @@ private ControllerUsuario(){}
         if (pos != -1){
             return;
         }
-        Usuario US = toModel(dto);
-        this.UsuarioDAO.save(US);
+
+        ListaUsuarios = UsuarioDAO.getAll(Usuario.class);
+        if(getByIdModel(dto.getDNI()) == null){
+
+            if (getIndex(dto.getDNI()) == -1){
+                this.UsuarioDAO.save(toModel(dto));
+                System.out.println("El usuario se registro correctamente");
+            }
+            else System.out.println("El usuario ya esta registrado");
+        }
+        else System.out.println("El usuario ya esta registrado");
+
     }
 
     }

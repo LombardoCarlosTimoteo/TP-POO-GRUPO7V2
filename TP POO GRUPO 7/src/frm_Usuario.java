@@ -20,4 +20,54 @@ public class frm_Usuario extends JInternalFrame {
         setContentPane(panel1);
         asociarEventos();
     }
+
+    public void asociarEventos(){
+        frm_AltaUsuario PantallaAltaUsuario = new frm_AltaUsuario();
+        frm_BajaUsuario PantallaBajaUsuario = new frm_BajaUsuario();
+        frm_ModificacionUsuario PantallaModificacionUsuario = new frm_ModificacionUsuario();
+
+
+        desktopPaneEmbebido.add(PantallaAltaUsuario);
+        desktopPaneEmbebido.add(PantallaBajaUsuario);
+        desktopPaneEmbebido.add(PantallaModificacionUsuario);
+
+
+        PantallaAltaUsuario.setVisible(false);
+        PantallaBajaUsuario.setVisible(false);
+        PantallaModificacionUsuario.setVisible(false);
+
+        revalidate();
+        repaint();
+
+        altaButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                PantallaAltaUsuario.setVisible(true);
+                PantallaBajaUsuario.setVisible(false);
+                PantallaModificacionUsuario.setVisible(false);
+                revalidate();
+                repaint();
+            }
+        });
+        bajaButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                PantallaAltaUsuario.setVisible(false);
+                PantallaBajaUsuario.setVisible(true);
+                PantallaModificacionUsuario.setVisible(false);
+                revalidate();
+                repaint();
+            }
+        });
+        modificaciónButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                PantallaAltaUsuario.setVisible(false);
+                PantallaBajaUsuario.setVisible(false);
+                PantallaModificacionUsuario.setVisible(true);
+                revalidate();
+                repaint();
+            }
+        });
+    }
 }

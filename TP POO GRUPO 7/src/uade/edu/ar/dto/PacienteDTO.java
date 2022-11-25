@@ -145,22 +145,3 @@ public Paciente dtoToModel(PacienteDTO dto){
         return new PacienteDTO(model.getDNI(),model.getNombreUsuario(),model.getEmail(),model.getPassword(),model.getNombre(),model.getDomicilio(),model.getFechaNacimiento(),model.getEdad(),model.isPeticonesCompletas(),model.getSexo());
     }
 }
-
-
-
-
-
-
-/*
-    // DEFINICION DE RELACIONES
-
-    private Usuario UsuarioAsociado;
-
-    private Peticion PeticionAsociada;
-
-    private Sucursal SucursalAsociada;
-
-    //CONTROLLER PACIENTE
-
-    //DEFINIR METODOS
-*/

@@ -23,7 +23,7 @@ public class Usuario {
 
     private String Domicilio;
 
-    private Date FechaNacimiento;
+    private String FechaNacimiento;
 
     private RolUsuario Rol;
 
@@ -38,7 +38,7 @@ public class Usuario {
 
     //DEFINIR METODOS
         //CONSTRUCTOR
-            public Usuario( int DNI,String NombreUsuario,String Email,String Password, String Nombre, String Domicilio,Date FechaNacimiento,RolUsuario Rol){
+            public Usuario( int DNI,String NombreUsuario,String Email,String Password, String Nombre, String Domicilio,String FechaNacimiento,RolUsuario Rol){
                 this.DNI=DNI;
                 this.NombreUsuario=NombreUsuario;
                 this.Email=Email;
@@ -97,11 +97,11 @@ public class Usuario {
         Domicilio = domicilio;
     }
 
-    public Date getFechaNacimiento() {
+    public String getFechaNacimiento() {
         return FechaNacimiento;
     }
 
-    public void setFechaNacimiento(Date fechaNacimiento) {
+    public void setFechaNacimiento(String fechaNacimiento) {
         FechaNacimiento = fechaNacimiento;
     }
 
