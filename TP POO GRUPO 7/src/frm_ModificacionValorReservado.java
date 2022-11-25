@@ -11,6 +11,7 @@ public class frm_ModificacionValorReservado extends JInternalFrame{
     private JTextField textFieldTipoComparacion;
     private JButton aceptarButton;
     private JButton cancelarButton;
+    private JPanel panelPrincipal;
 
     ControllerValorReservado controllerValorReservado = ControllerValorReservado.getInstances();
 
@@ -18,7 +19,7 @@ public class frm_ModificacionValorReservado extends JInternalFrame{
 
     private frm_ModificacionValorReservado self;
 
-    public frm_ModificacionValorReservado() {
+    public frm_ModificacionValorReservado() throws Exception {
         super("Valor Reservado");
         setBorder(null);
         ((javax.swing.plaf.basic.BasicInternalFrameUI)this.getUI()).setNorthPane(null);
@@ -43,7 +44,7 @@ public class frm_ModificacionValorReservado extends JInternalFrame{
                 String valor = textFieldValor.getText();
                 String tipo = textFieldTipoComparacion.getText();
 
-                VRDTO.setTipoComparacion(tipo);
+                //VRDTO.setTipoComparacion(tipo);
                 VRDTO.setValor(valor);
 
 

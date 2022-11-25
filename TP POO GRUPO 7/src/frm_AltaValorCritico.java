@@ -27,8 +27,6 @@ public class frm_AltaValorCritico extends JInternalFrame{
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setContentPane(panelPrincipal);
         asociarEventos();
-
-
     }
 
     public void asociarEventos() {

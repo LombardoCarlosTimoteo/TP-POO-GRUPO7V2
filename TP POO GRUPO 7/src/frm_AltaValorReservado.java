@@ -19,7 +19,7 @@ public class frm_AltaValorReservado extends JInternalFrame{
 
     private ControllerValorReservado controllerValorReservado = ControllerValorReservado.getInstances();
 
-    public frm_AltaValorReservado() throws Exception {
+    public frm_AltaValorReservado() throws Exception{
         super("Alta Paciente");
         setBorder(null);
         ((javax.swing.plaf.basic.BasicInternalFrameUI) this.getUI()).setNorthPane(null);
@@ -28,7 +28,7 @@ public class frm_AltaValorReservado extends JInternalFrame{
         asociarEventos();
     }
     public void asociarEventos() {
-        this.self=self;
+        this.self=this;
         cancelarButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {

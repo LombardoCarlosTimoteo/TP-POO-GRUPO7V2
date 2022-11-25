@@ -9,7 +9,7 @@ public class frm_ValorReservado extends JInternalFrame{
     private JButton altaButton;
     private JPanel desktopPaneEmbebido;
 
-    public frm_ValorReservado() {
+    public frm_ValorReservado() throws Exception {
         super("Valor Reservado");
         setBorder(null);
         ((javax.swing.plaf.basic.BasicInternalFrameUI)this.getUI()).setNorthPane(null);
@@ -17,7 +17,7 @@ public class frm_ValorReservado extends JInternalFrame{
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         asociarEventos();
     }
-    public void asociarEventos(){
+    public void asociarEventos()throws Exception{
         frm_AltaValorReservado PantallaAltaVR = new frm_AltaValorReservado();
         frm_InicioValorReservado PantallaInicio = new frm_InicioValorReservado();
         frm_BajaValorReservado PantallaBajaVR = new frm_BajaValorReservado();

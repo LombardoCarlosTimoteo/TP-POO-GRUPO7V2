@@ -25,9 +25,7 @@ public class ValorCritico {
                 this.IDValorC = IDValorC;
             }
 
-    public ValorCritico(int idValorC, TipoResultado tipoComparacion, String valor, Practica practicaAsociada) {
 
-    }
 
     public String getValor() {
         return Valor;

@@ -19,8 +19,8 @@ public class frm_ModificacionValorCritico extends JInternalFrame{
 
     private ValorCriticoDTO VCDTO = new ValorCriticoDTO(0, "", TipoResultado.Booleano);
 
-    public frm_ModificacionValorCritico(){
-        super("Alta Paciente");
+    public frm_ModificacionValorCritico() throws Exception{
+        super("Modificacion Paciente");
         setBorder(null);
         ((javax.swing.plaf.basic.BasicInternalFrameUI) this.getUI()).setNorthPane(null);
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -28,7 +28,7 @@ public class frm_ModificacionValorCritico extends JInternalFrame{
         asociarEventos();
     }
     public void asociarEventos() {
-        this.self=self;
+        this.self=this;
         cancelarButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -43,9 +43,9 @@ public class frm_ModificacionValorCritico extends JInternalFrame{
                 //TipoResultado tipo = textFieldTipoComparacion.getText();
 
                 VCDTO.setValor(valor);
-                VCDTO.setTipoComparacion(tipo);
+                //VCDTO.setTipoComparacion(tipo);
 
-                controllerValorCritico.ModificarValorCritico(id, VCDTO);
+                //controllerValorCritico.ModificarValorCritico(id, VCDTO);
 
             }
         });

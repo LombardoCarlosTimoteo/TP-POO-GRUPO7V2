@@ -28,7 +28,7 @@ public class frm_BajaValorCritico extends JInternalFrame{
     }
 
        private void asociarEventos(){
-        this.self=self;
+        this.self=this;
         cancelarButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {

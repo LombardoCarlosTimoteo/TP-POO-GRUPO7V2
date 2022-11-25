@@ -14,14 +14,14 @@ import java.util.List;
 public class ControllerValorCritico {
     private ControllerValorCritico(){}
     private ArrayList<ValorCriticoDTO> ValorCriticoDTO = new ArrayList<ValorCriticoDTO>();
-    private static List<ValorCritico> ListaValoresCriticos;
+    private static ArrayList<ValorCritico> ListaValoresCriticos;
 
     private ArrayList<ValorCriticoDTO> getValoresCriticos() {
         return ValorCriticoDTO;
     }
     private static ControllerValorCritico CONTROLLERVALORC = null;
 
-    private static uade.edu.ar.dao.ValorCriticoDAO ValorCriticoDAO;
+    private static ValorCriticoDAO ValorCriticoDAO;
 
    public void ModificarValorCritico(int ID, ValorCriticoDTO VCDTO, TipoResultado TipoComparacion,String Valor){
         int i=0;
@@ -89,7 +89,7 @@ public class ControllerValorCritico {
 
 
     public static ValorCritico toModel(ValorCriticoDTO dto) {
-        return new ValorCritico(dto.getIDValorC(), dto.getTipoComparacion(), dto.getValor(), dto.getPracticaAsociada());
+        return new ValorCritico(dto.getValor(), dto.getTipoComparacion(), dto.getIDValorC());
     }
     public static ValorCriticoDTO toDto(ValorCritico model){
         return new ValorCriticoDTO(model.getIDValorC(),model.getValor(),model.getTipoComparacion());

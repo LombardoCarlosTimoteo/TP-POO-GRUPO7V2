@@ -14,6 +14,9 @@ public class ValorCriticoDTO {
     private Practica PracticaAsociada;
 
     public ValorCriticoDTO(int idValorC, String valor, TipoResultado tipoComparacion) {
+        this.IDValorC=idValorC;
+        this.Valor=valor;
+        this.TipoComparacion=tipoComparacion;
     }
 
     //DEFINIR METODOS
