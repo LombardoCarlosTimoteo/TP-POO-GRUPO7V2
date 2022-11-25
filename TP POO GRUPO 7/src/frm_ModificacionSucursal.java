@@ -5,17 +5,26 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class frm_AltaSucursal extends  JInternalFrame{
-    private JTextField textFieldResponsableTecnico;
+public class frm_ModificacionSucursal extends JInternalFrame{
+    private JPanel panelPrincipal;
     private JTextField textFieldNumeroSucursal;
     private JTextField textFieldDireccion;
-    private JPanel panelPrincipal;
+    private JTextField textFieldResponsableTecnico;
     private JButton aceptarButton;
     private JButton cancelarButton;
-    private frm_AltaSucursal self;
+    private SucursalDTO SDTO = new SucursalDTO(0, "", "", false);
+    private ControllerSucursal controllerSucursal;
 
-    public frm_AltaSucursal() {
-        super("Alta Sucursal");
+    {
+        try {
+            controllerSucursal = ControllerSucursal.getInstances();
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public frm_ModificacionSucursal() {
+        super("Modificacion Sucursal");
         setBorder(null);
         ((javax.swing.plaf.basic.BasicInternalFrameUI) this.getUI()).setNorthPane(null);
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -23,20 +32,13 @@ public class frm_AltaSucursal extends  JInternalFrame{
         asociarEventos();
     }
 
-    private void asociarEventos(){
-        this.self=this;
-
-
-
+    public void asociarEventos(){
         cancelarButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 dispose();
             }
         });
-
-
-
         aceptarButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -48,12 +50,7 @@ public class frm_AltaSucursal extends  JInternalFrame{
                 SDTO.setResponsableTecnico(Reesp);
                 SDTO.setNumero(nro);
 
-                try {
-                    controllerSucursal.GuardarSucursal(SDTO);
-                } catch (Exception ex) {
-                    throw new RuntimeException(ex);
-                }
-
+                controllerSucursal.ModificarSucursal(nro, SDTO);
             }
         });
     }

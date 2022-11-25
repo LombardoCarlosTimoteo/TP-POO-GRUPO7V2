@@ -33,6 +33,7 @@ public class frm_AltaPaciente extends JInternalFrame{
         setContentPane(panelPrincipal);
         asociarEventos();
 
+
     }
 
     public void asociarEventos(){
@@ -74,6 +75,7 @@ public class frm_AltaPaciente extends JInternalFrame{
             @Override
             public void actionPerformed(ActionEvent e) {
                 dispose();
+
             }
         });
     }

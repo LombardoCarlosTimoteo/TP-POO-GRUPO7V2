@@ -1,17 +1,14 @@
 import javax.swing.*;
 
-public class frm_ValorCritico extends JInternalFrame{
+public class frm_InicioSucursal extends JInternalFrame {
     private JPanel panelPrincipal;
-    private JButton altaButton;
-    private JButton modificaciónButton;
-    private JButton bajaButton;
-    private JPanel desktopPaneEmbebido;
 
-    public frm_ValorCritico() {
-        super("Valor Critico");
+    public frm_InicioSucursal(){
+        super("Inicio");
         setBorder(null);
         ((javax.swing.plaf.basic.BasicInternalFrameUI)this.getUI()).setNorthPane(null);
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setContentPane(panelPrincipal);
     }
-}
+    }
+

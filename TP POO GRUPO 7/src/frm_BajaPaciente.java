@@ -19,12 +19,7 @@ public class frm_BajaPaciente extends  JInternalFrame{
         setContentPane(panelPrincipal);
         asociarEventos();
 
-        cancelarButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                dispose();
-            }
-        });
+
     }
 
     private void asociarEventos(){

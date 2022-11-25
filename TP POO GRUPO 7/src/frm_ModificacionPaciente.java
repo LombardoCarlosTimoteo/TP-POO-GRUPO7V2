@@ -33,6 +33,7 @@ public class frm_ModificacionPaciente extends JInternalFrame{
         setContentPane(panelPrincipal);
         asociarEventos();
 
+
     }
 
     private void asociarEventos(){
@@ -70,6 +71,12 @@ public class frm_ModificacionPaciente extends JInternalFrame{
                     throw new RuntimeException(ex);
                 }
                 textFieldContraseña.setText(null);
+            }
+        });
+        cancelarButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                dispose();
             }
         });
     }

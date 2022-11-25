@@ -8,6 +8,7 @@ public class frm_Sucursal extends JInternalFrame{
     private JButton bajaButton;
     private JButton altaButton;
     private JPanel panelPrincipal;
+    private JPanel desktopPaneEmbebido;
 
     public frm_Sucursal() {
         super("Sucursal");
@@ -15,6 +16,7 @@ public class frm_Sucursal extends JInternalFrame{
         ((javax.swing.plaf.basic.BasicInternalFrameUI) this.getUI()).setNorthPane(null);
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setContentPane(panelPrincipal);
+        asociarEventos();
     }
 
     private void asociarEventos(){
