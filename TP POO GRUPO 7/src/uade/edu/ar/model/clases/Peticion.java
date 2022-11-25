@@ -9,9 +9,9 @@ public class Peticion {
 
     //DEFINIR ATRIBUTOS
 
-    private Date FechaCarga;
+    private String FechaCarga;
 
-    private Date FechaEntrega;
+    private String FechaEntrega;
 
     private int IDPeticion;
 
@@ -37,19 +37,19 @@ public class Peticion {
     //DEFINIR METODOS
 
     //GETTERS/SETTERS
-    public Date getFechaCarga() {
+    public String getFechaCarga() {
         return FechaCarga;
     }
 
-    public void setFechaCarga(Date fechaCarga) {
+    public void setFechaCarga(String fechaCarga) {
         FechaCarga = fechaCarga;
     }
 
-    public Date getFechaEntrega() {
+    public String getFechaEntrega() {
         return FechaEntrega;
     }
 
-    public void setFechaEntrega(Date fechaEntrega) {
+    public void setFechaEntrega(String fechaEntrega) {
         FechaEntrega = fechaEntrega;
     }
 
@@ -117,7 +117,7 @@ public class Peticion {
         ResultadoAsociado = resultadoAsociado;
     }
 
-    public Peticion(Date FechaCarg, Date FechaEntrega, int IDPeticion,String ObraSocial,boolean Completado, Paciente PacAsociado, Sucursal SAsociada, Usuario UAsociado, ArrayList PracAsociada, ArrayList RAsociado){
+    public Peticion(String FechaCarg, String FechaEntrega, int IDPeticion,String ObraSocial,boolean Completado, Paciente PacAsociado, Sucursal SAsociada, Usuario UAsociado, ArrayList PracAsociada, ArrayList RAsociado){
         this.FechaCarga=FechaCarg;
         this.FechaEntrega=FechaEntrega;
         this.IDPeticion=IDPeticion;

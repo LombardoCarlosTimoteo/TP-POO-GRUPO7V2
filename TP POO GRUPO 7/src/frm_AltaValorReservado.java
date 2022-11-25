@@ -32,6 +32,14 @@ public class frm_AltaValorReservado extends JInternalFrame{
     public void asociarEventos() {
         this.self=this;
 
+
+        cancelarButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                dispose();
+            }
+        });
+
         aceptarButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -51,14 +59,6 @@ public class frm_AltaValorReservado extends JInternalFrame{
                 }
             }
         });
-        cancelarButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                dispose();
-                dispose();
-                dispose();
-                System.out.println("cancelar");
-            }
-        });
+
     }
 }

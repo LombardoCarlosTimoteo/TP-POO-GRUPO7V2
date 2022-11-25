@@ -42,7 +42,7 @@ public class Paciente {
 
     private ControllerPaciente ControllerPaciente;
 
-     public Paciente(int DNI,String NombreUsuario,String Email,String Password,String Nombre,String Domicilio, String FechaNacimiento,int Edad, boolean PeticonesCompletas,SexoPaciente Sexo){
+     public Paciente(int DNI,String NombreUsuario,String Email,String Password,String Nombre,String Domicilio, String FechaNacimiento,int Edad, boolean PeticonesCompletas,SexoPaciente Sexo, Usuario UsuarioAsociado, ArrayList<Peticion> PeticionAsociada, Sucursal SucursalAsociada){
                 this.DNI = DNI;
                 this.NombreUsuario= NombreUsuario;
                 this.Email=Email;
@@ -53,6 +53,9 @@ public class Paciente {
                 this.Edad=Edad;
                 this.PeticonesCompletas=PeticonesCompletas;
                 this.Sexo=Sexo;
+                this.PeticionAsociada = PeticionAsociada;
+                this.UsuarioAsociado = UsuarioAsociado;
+                this.SucursalAsociada = SucursalAsociada;
             }
 
 
@@ -166,12 +169,24 @@ public class Paciente {
         return ControllerPaciente;
     }
 
+    public void AltaPeticion(String ObraSocial, int DNI, int nroS, int IDU, ArrayList IDPR){
+
+
+
+         int ID = 0;
+
+         //Creado de fechas
+         LocalDate FechaCarg = LocalDate.now();
+         LocalDate FechaEntrega = FechaCarg.plusMonths(1);
+
+         String FC = FechaCarg.toString();
+         String FR = FechaCarg.toString();
+         ArrayList<Resultado> RAsociado = new ArrayList<Resultado>();
+         //Paciente PacAsociado  =
+
+         //Peticion pet = new Peticion(FC, FR, ID, ObraSocial,false, PacAsociado, SAsociada, UAsociado, PracAsociada, RAsociado)
+    }
+
     public void setControllerPaciente(uade.edu.ar.controller.ControllerPaciente controllerPaciente) {
         ControllerPaciente = controllerPaciente;
-
-      /*  public static PacienteDTO toDto(Paciente paciente){
-            PacienteDTO pDTO = new Paciente(p.getDNI(), p.getNombreUsuario(), p.getEmail(), p.getPassword(), p.getNombre(), p.getDomicilio(), p.getFechaNacimiento(),p.getEdad(), p.isPeticonesCompletas(), p.getSexo());
-            return pDTO;
-        }
-     }*/
 }}

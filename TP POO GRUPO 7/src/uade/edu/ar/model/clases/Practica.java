@@ -27,8 +27,6 @@ public class Practica {
 
     private ArrayList<Resultado> ResultadoAsociado;
 
-    //REFLEXIVA
-
     //DEFINIR METODOS
 
     //CONSTRUCTOR RESULTADOS

@@ -13,8 +13,8 @@ public class frm_ValorReservado extends JInternalFrame{
         super("Valor Reservado");
         setBorder(null);
         ((javax.swing.plaf.basic.BasicInternalFrameUI)this.getUI()).setNorthPane(null);
-        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setContentPane(panelPrincipal);
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         asociarEventos();
     }
     public void asociarEventos()throws Exception{
@@ -76,7 +76,7 @@ public class frm_ValorReservado extends JInternalFrame{
                 repaint();
             }
         });
-        PantallaInicio.setVisible(true);
+
 
     }
 
