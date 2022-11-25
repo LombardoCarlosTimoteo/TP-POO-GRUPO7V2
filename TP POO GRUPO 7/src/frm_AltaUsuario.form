@@ -24,14 +24,6 @@
             </constraints>
             <properties/>
           </component>
-          <component id="30790" class="javax.swing.JTextField" binding="textFieldRol">
-            <constraints>
-              <grid row="7" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
-                <preferred-size width="150" height="-1"/>
-              </grid>
-            </constraints>
-            <properties/>
-          </component>
           <component id="1edcc" class="javax.swing.JTextField" binding="textFieldFechaNacimiento">
             <constraints>
               <grid row="6" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
@@ -128,14 +120,6 @@
               <text value="Fecha de Nacimiento"/>
             </properties>
           </component>
-          <component id="9fcdb" class="javax.swing.JLabel">
-            <constraints>
-              <grid row="7" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-            </constraints>
-            <properties>
-              <text value="Rol"/>
-            </properties>
-          </component>
           <component id="6725c" class="javax.swing.JButton" binding="aceptarButton" default-binding="true">
             <constraints>
               <grid row="8" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
@@ -159,6 +143,26 @@
               </grid>
             </constraints>
             <properties/>
+          </component>
+          <component id="9d0b0" class="javax.swing.JComboBox" binding="comboBoxRolUsuario">
+            <constraints>
+              <grid row="7" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <model>
+                <item value="Administrador"/>
+                <item value="Recepcionista"/>
+                <item value="Laboratorista"/>
+              </model>
+            </properties>
+          </component>
+          <component id="3c198" class="javax.swing.JLabel">
+            <constraints>
+              <grid row="7" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text value="Rol"/>
+            </properties>
           </component>
         </children>
       </grid>

@@ -15,9 +15,9 @@ public class frm_ModificacionUsuario extends JInternalFrame {
     private JTextField textFieldContraseña;
     private JTextField textFieldDomicilio;
     private JTextField textFieldNombreApellido;
-    private JTextField textFieldRol;
     private JButton aceptarButton;
     private JButton cancelarButton;
+    private JComboBox comboBoxRolUsuario;
     private frm_ModificacionUsuario self;
     private UsuarioDTO UDTO = new UsuarioDTO(0, "", "", "", "", "", "", RolUsuario.Recepcionista);
     private ControllerUsuario controllerUsuario;
@@ -56,7 +56,11 @@ public class frm_ModificacionUsuario extends JInternalFrame {
                 String mail = textFieldMail.getText();
                 String NombreUsuario = textFieldNombreUsuario.getText();
                 // RolUsuario rolUsuario = textFieldRol.getText();
+                String rolUsuario = comboBoxRolUsuario.getSelectedItem().toString();
 
+                if(rolUsuario == "Administrador") UDTO.setRol(RolUsuario.Administrador);
+                if(rolUsuario == "Recepcionista") UDTO.setRol(RolUsuario.Recepcionista);
+                if(rolUsuario == "Laboratorista") UDTO.setRol(RolUsuario.Laboratorista);
                 UDTO.setDNI(DNI);
                 UDTO.setDomicilio(domicilio);
                 UDTO.setFechaNacimiento(fechaNacimiento);

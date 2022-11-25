@@ -9,7 +9,6 @@ import java.awt.event.ActionListener;
 public class frm_AltaUsuario extends JInternalFrame{
     private JPanel panelPrincipal;
     private JTextField textFieldDNI;
-    private JTextField textFieldRol;
     private JTextField textFieldFechaNacimiento;
     private JTextField textFieldNombreUsuario;
     private JTextField textFieldDomicilio;
@@ -18,6 +17,7 @@ public class frm_AltaUsuario extends JInternalFrame{
     private JButton cancelarButton;
     private JButton aceptarButton;
     private JTextField textFieldMail;
+    private JComboBox comboBoxRolUsuario;
     private frm_AltaUsuario self;
     private UsuarioDTO UDTO = new UsuarioDTO(0, "", "", "", "", "", "", RolUsuario.Recepcionista);
     private ControllerUsuario controllerUsuario;
@@ -54,13 +54,15 @@ public class frm_AltaUsuario extends JInternalFrame{
                 String fechaNacimiento = textFieldFechaNacimiento.getText();
                 String mail = textFieldMail.getText();
                 String NombreUsuario = textFieldNombreUsuario.getText();
-               // RolUsuario rolUsuario = textFieldRol.getText();
+               String rolUsuario = comboBoxRolUsuario.getSelectedItem().toString();
 
+               if(rolUsuario == "Administrador") UDTO.setRol(RolUsuario.Administrador);
+                if(rolUsuario == "Recepcionista") UDTO.setRol(RolUsuario.Recepcionista);
+                if(rolUsuario == "Laboratorista") UDTO.setRol(RolUsuario.Laboratorista);
                 UDTO.setDNI(DNI);
                 UDTO.setDomicilio(domicilio);
                 UDTO.setFechaNacimiento(fechaNacimiento);
                 UDTO.setEmail(mail);
-                //UDTO.setRolUsuario(rolUsuario);
                 UDTO.setPassword(contraseña);
                 UDTO.setNombre(NombreApellido);
                 UDTO.setNombreUsuario(NombreUsuario);
