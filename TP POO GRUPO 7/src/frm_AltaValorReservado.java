@@ -1,3 +1,7 @@
+import uade.edu.ar.controller.ControllerValorReservado;
+import uade.edu.ar.dto.ValorReservadoDTO;
+import uade.edu.ar.model.TipoResultado;
+
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -9,8 +13,11 @@ public class frm_AltaValorReservado extends JInternalFrame{
     private JButton aceptarButton;
     private JButton cancelarButton;
     private JPanel panelPrincipal;
-
     private frm_AltaValorReservado self;
+
+    private ValorReservadoDTO VRDTO = new ValorReservadoDTO("", TipoResultado.Booleano, 0);
+
+    private ControllerValorReservado controllerValorReservado = ControllerValorReservado.getInstances();
 
     public frm_AltaValorReservado() throws Exception {
         super("Alta Paciente");
@@ -20,18 +27,31 @@ public class frm_AltaValorReservado extends JInternalFrame{
         setContentPane(panelPrincipal);
         asociarEventos();
     }
-    public asociarEventos() {
+    public void asociarEventos() {
         this.self=self;
         cancelarButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                dispose();
             }
         });
         aceptarButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                int id = Integer.parseInt(textFieldValorReservadoID.getText());
+                String valor = textFieldValor.getText();
+                //TipoResultado tipo = textFieldTipoComparacion.getText();
 
+
+                VRDTO.setValor(valor);
+                VRDTO.setIDValorR(id);
+                //VRDTO.setTipoComparacion(tipo);
+
+                try {
+                    controllerValorReservado.GuardarValorReservado(VRDTO);
+                } catch (Exception ex) {
+                    throw new RuntimeException(ex);
+                }
             }
         });
     }

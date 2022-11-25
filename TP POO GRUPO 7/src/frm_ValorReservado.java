@@ -15,22 +15,65 @@ public class frm_ValorReservado extends JInternalFrame{
         ((javax.swing.plaf.basic.BasicInternalFrameUI)this.getUI()).setNorthPane(null);
         setContentPane(panelPrincipal);
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        asociarEventos();
+    }
+    public void asociarEventos(){
+        frm_AltaValorReservado PantallaAltaVR = new frm_AltaValorReservado();
+        frm_InicioValorReservado PantallaInicio = new frm_InicioValorReservado();
+        frm_BajaValorReservado PantallaBajaVR = new frm_BajaValorReservado();
+        frm_ModificacionValorReservado PantallaModificacionVR = new frm_ModificacionValorReservado();
+
+        desktopPaneEmbebido.add(PantallaAltaVR);
+        desktopPaneEmbebido.add(PantallaInicio);
+        desktopPaneEmbebido.add(PantallaBajaVR);
+        desktopPaneEmbebido.add(PantallaModificacionVR);
+
+        PantallaBajaVR.setVisible(false);
+        PantallaAltaVR.setVisible(false);
+        PantallaInicio.setVisible(true);
+        PantallaModificacionVR.setVisible(false);
+
+        revalidate();
+        repaint();
+
+
         altaButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
 
+                PantallaBajaVR.setVisible(false);
+                PantallaAltaVR.setVisible(true);
+                PantallaInicio.setVisible(false);
+                PantallaModificacionVR.setVisible(false);
+
+                revalidate();
+                repaint();
             }
         });
         bajaButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
 
+                PantallaBajaVR.setVisible(true);
+                PantallaAltaVR.setVisible(false);
+                PantallaInicio.setVisible(false);
+                PantallaModificacionVR.setVisible(false);
+
+                revalidate();
+                repaint();
             }
         });
         modificaciónButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
 
+                PantallaBajaVR.setVisible(false);
+                PantallaAltaVR.setVisible(false);
+                PantallaInicio.setVisible(false);
+                PantallaModificacionVR.setVisible(true);
+
+                revalidate();
+                repaint();
             }
         });
     }
