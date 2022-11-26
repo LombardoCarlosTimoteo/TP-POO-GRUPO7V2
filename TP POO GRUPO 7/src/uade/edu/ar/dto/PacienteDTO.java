@@ -3,10 +3,7 @@ package uade.edu.ar.dto;
 import uade.edu.ar.controller.ControllerPaciente;
 import uade.edu.ar.dao.PeticionDAO;
 import uade.edu.ar.model.SexoPaciente;
-import uade.edu.ar.model.clases.Paciente;
-import uade.edu.ar.model.clases.Resultado;
-import uade.edu.ar.model.clases.Sucursal;
-import uade.edu.ar.model.clases.Usuario;
+import uade.edu.ar.model.clases.*;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -189,15 +186,8 @@ public class PacienteDTO {
         ControllerPaciente = controllerPaciente;
     }
 
-    public uade.edu.ar.dao.PeticionDAO getPeticionDAO() {
-        return PeticionDAO;
-    }
-
-    public void setPeticionDAO(uade.edu.ar.dao.PeticionDAO peticionDAO) {
-        PeticionDAO = peticionDAO;
-    }
-public Paciente dtoToModel(PacienteDTO dto){
-        Paciente p = new Paciente(dto.getDNI(), dto.getNombreUsuario(), dto.getEmail(), dto.getPassword(), dto.getNombre(), dto.getDomicilio(), dto.getFechaNacimiento(),dto.getEdad(), dto.isPeticonesCompletas(), dto.getSexo(),  dto.getUsuarioAsociado(),dto.getPeticionAsociada(),dto.getSucursalAsociada());
+    public Paciente dtoToModel(PacienteDTO dto){
+        Paciente p = new Paciente(dto.getDNI(), dto.getNombreUsuario(), dto.getEmail(), dto.getPassword(), dto.getNombre(), dto.getDomicilio(), dto.getFechaNacimiento(),dto.getEdad(), dto.isPeticonesCompletas(), dto.getSexo(),  dto.getPeticionAsociada());
     return p;
 }
 //TUVE QUE AGREGAR ESTO PARA QUE EN CUSTOMTABLEMODEL NO TIRE ERROR LA FUNCION getValueAt
@@ -212,5 +202,32 @@ public Paciente dtoToModel(PacienteDTO dto){
 
     public static PacienteDTO toDto(Paciente model){
         return new PacienteDTO(model.getDNI(),model.getNombreUsuario(),model.getEmail(),model.getPassword(),model.getNombre(),model.getDomicilio(),model.getFechaNacimiento(),model.getEdad(),model.isPeticonesCompletas(),model.getSexo());
+    }
+
+    public uade.edu.ar.dao.PeticionDAO getPeticionDAO() {
+        return PeticionDAO;
+    }
+
+    public void setPeticionDAO(uade.edu.ar.dao.PeticionDAO peticionDAO) {
+        PeticionDAO = peticionDAO;
+    }
+
+    public ArrayList<PeticionDTO> getListaPeticiones(PacienteDTO pac){
+
+        ArrayList<PeticionDTO> ListaAuxPet = null;
+        try {
+            ListaAuxPet = pac.getPeticionDAO().getAll();
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+        ArrayList<PeticionDTO> ListaPeticiones = new ArrayList<PeticionDTO>();
+
+        for (int id :pac.getPeticionAsociada()){
+            for (PeticionDTO pet: ListaAuxPet){
+                if (pet.getIDPeticion() == id);
+                ListaPeticiones.add(pet);
+            }
+        }
+        return ListaPeticiones;
     }
 }

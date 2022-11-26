@@ -1,5 +1,9 @@
 package uade.edu.ar.model.clases;
 
+import uade.edu.ar.dao.ResultadoDAO;
+
+import java.util.ArrayList;
+
 public class Resultado {
 
     //DEFINIR ATRIBUTOS
@@ -7,6 +11,7 @@ public class Resultado {
     private String Valor;
 
     private int IDResultado;
+
 
     //DEFINIR RELACIONES
 
@@ -77,5 +82,7 @@ public class Resultado {
     }
         return hacer;
 }
+
+
 
 }

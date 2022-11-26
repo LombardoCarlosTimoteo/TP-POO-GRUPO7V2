@@ -12,7 +12,7 @@ public class frm_ModificacionSucursal extends JInternalFrame{
     private JTextField textFieldResponsableTecnico;
     private JButton aceptarButton;
     private JButton cancelarButton;
-    private SucursalDTO SDTO = new SucursalDTO(0, "", "", false);
+    private SucursalDTO SDTO = new SucursalDTO(0, "", "", false,null);
     private ControllerSucursal controllerSucursal;
 
     {

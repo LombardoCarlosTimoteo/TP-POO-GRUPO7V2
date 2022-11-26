@@ -41,7 +41,7 @@ public abstract class GenericDAO<T> {
         return list;
     }
 
-    public List<T> getAll() throws Exception {
+    public ArrayList<T> getAll() throws Exception {
         return getAll(clase);
     }
 

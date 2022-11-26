@@ -72,6 +72,16 @@ public class frm_ModificacionPaciente extends JInternalFrame{
                     throw new RuntimeException(ex);
                 }
                 textFieldContraseña.setText(null);
+                textFieldMail.setText(null);
+                textFieldContraseña.setText(null);
+                textFieldDNI.setText(null);
+                textFieldNombreApellido.setText(null);
+                textFieldDomicilio.setText(null);
+                textFieldEdad.setText(null);
+                textFieldFechaNacimiento.setText(null);
+                textFieldMail.setText(null);
+                textFieldNombreUsuario.setText(null);
+
             }
         });
         cancelarButton.addActionListener(new ActionListener() {

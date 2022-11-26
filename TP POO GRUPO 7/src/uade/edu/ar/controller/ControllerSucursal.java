@@ -12,7 +12,7 @@ import java.util.List;
 public class ControllerSucursal {
     private ControllerSucursal(){}
     private ArrayList<SucursalDTO> SucursalesDTO = new ArrayList<SucursalDTO>();
-    private static List<Sucursal> ListaSucursales;
+    private static ArrayList<SucursalDTO> ListaSucursales;
 
     private ArrayList<SucursalDTO> getSucursales() {
         return SucursalesDTO;

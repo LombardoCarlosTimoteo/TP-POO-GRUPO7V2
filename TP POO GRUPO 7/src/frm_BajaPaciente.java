@@ -35,6 +35,7 @@ public class frm_BajaPaciente extends  JInternalFrame{
                 } catch (Exception ex) {
                     throw new RuntimeException(ex);
                 }
+                textFieldDNI.setText(null);
             }
         });
 

@@ -104,7 +104,7 @@ public class ControllerPaciente {
     }
 
     public static Paciente toModel(PacienteDTO dto){
-        return new Paciente(dto.getDNI(),dto.getNombreUsuario(),dto.getEmail(),dto.getPassword(),dto.getNombre(),dto.getDomicilio(),dto.getFechaNacimiento(),dto.getEdad(),dto.isPeticonesCompletas(),dto.getSexo(),dto.getUsuarioAsociado(),dto.getPeticionAsociada(),dto.getSucursalAsociada());
+        return new Paciente(dto.getDNI(),dto.getNombreUsuario(),dto.getEmail(),dto.getPassword(),dto.getNombre(),dto.getDomicilio(),dto.getFechaNacimiento(),dto.getEdad(),dto.isPeticonesCompletas(),dto.getSexo(),dto.getPeticionAsociada());
     }
 
     public static PacienteDTO toDto(Paciente model){

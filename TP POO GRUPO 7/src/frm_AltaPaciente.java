@@ -69,6 +69,15 @@ public class frm_AltaPaciente extends JInternalFrame{
                 } catch (Exception ex) {
                     throw new RuntimeException(ex);
                 }
+            textFieldMail.setText(null);
+                textFieldContraseña.setText(null);
+                        textFieldDNI.setText(null);
+                textFieldNombreyApellido.setText(null);
+                textFieldDomicilio.setText(null);
+                textFieldEdad.setText(null);
+                        textFieldFechaNacimiento.setText(null);
+                textFieldMail.setText(null);
+                        textFieldNombreUsuario.setText(null);
             }
         });
 
