@@ -104,7 +104,7 @@ public class ControllerPaciente {
     }
 
     public static Paciente toModel(PacienteDTO dto){
-        return new Paciente(dto.getDNI(),dto.getNombreUsuario(),dto.getEmail(),dto.getPassword(),dto.getNombre(),dto.getDomicilio(),dto.getFechaNacimiento(),dto.getEdad(),dto.isPeticonesCompletas(),dto.getSexo());
+        return new Paciente(dto.getDNI(),dto.getNombreUsuario(),dto.getEmail(),dto.getPassword(),dto.getNombre(),dto.getDomicilio(),dto.getFechaNacimiento(),dto.getEdad(),dto.isPeticonesCompletas(),dto.getSexo(),dto.getUsuarioAsociado(),dto.getPeticionAsociada(),dto.getSucursalAsociada());
     }
 
     public static PacienteDTO toDto(Paciente model){
@@ -126,7 +126,7 @@ public class ControllerPaciente {
         else System.out.println("El paciente no puede ser eliminado ya que no esta registrado en la base de datos.");
      }
 
-
+/*
 
     public void mostrarResultadoPractica (String IDPractica, int DNI){
 
@@ -173,7 +173,7 @@ public class ControllerPaciente {
             System.out.println(R.getIDResultado() + R.getValor());
         }
     }
-
+*/
  public void GuardarPaciente(PacienteDTO dto) throws Exception {
         int pos = getIndex(dto.getDNI());
         if (pos != -1){
@@ -192,7 +192,7 @@ public class ControllerPaciente {
      else System.out.println("El Paciente ya esta registrado");
  }
 
-    public void mostrarResultadoPractica2 (String IDPractica, int DNI){
+    /*public void mostrarResultadoPractica2 (String IDPractica, int DNI){
 
         ArrayList<Resultado> ResultadosAMostrar = new ArrayList<Resultado>();
 
@@ -201,7 +201,7 @@ public class ControllerPaciente {
         Paciente pac = ListaPacientes.get(posicion);
 
         ArrayList<Peticion> ListaAuxPet = pac.getPeticionDAO().getAll();
-        ArrayList<Peticion> ListaPeticiones = new ArrayList<Peticion>;
+        ArrayList<Peticion> ListaPeticiones = new ArrayList<Peticion>();
 
         for (int id :pac.getPeticionAsociada()){
             for (Peticion pet: ListaAuxPet){
@@ -212,7 +212,7 @@ public class ControllerPaciente {
 
         boolean reservado = false;
 
-        for (Peticion P : ListaPeticiones{
+        for (Peticion P : ListaPeticiones){
             for (int i = 0; i < ListaPacientes.get(posicion).getPeticionAsociada().size(); i++){
                 ArrayList<Practica> Listapractica = ListaPacientes.get(posicion).getPeticionAsociada().get(i).getPracticaAsociada();
                 for (Practica PR : Listapractica){
@@ -249,7 +249,7 @@ public class ControllerPaciente {
     }
 
 
-
+*/
 
 
 }

@@ -6,7 +6,7 @@
       <xy x="20" y="20" width="500" height="400"/>
     </constraints>
     <properties>
-      <background color="-12495315"/>
+      <background color="-16736513"/>
     </properties>
     <border type="none"/>
     <children>
@@ -17,6 +17,7 @@
           </grid>
         </constraints>
         <properties>
+          <font size="22" style="1"/>
           <text value="Sucursal"/>
         </properties>
       </component>
@@ -56,7 +57,9 @@
         <constraints>
           <grid row="0" column="1" row-span="5" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
         </constraints>
-        <properties/>
+        <properties>
+          <background color="-1250067"/>
+        </properties>
         <border type="none"/>
         <children/>
       </grid>

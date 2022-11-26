@@ -1,10 +1,15 @@
 package uade.edu.ar.dto;
 
 import uade.edu.ar.controller.ControllerPaciente;
+import uade.edu.ar.dao.PeticionDAO;
 import uade.edu.ar.model.SexoPaciente;
 import uade.edu.ar.model.clases.Paciente;
+import uade.edu.ar.model.clases.Resultado;
+import uade.edu.ar.model.clases.Sucursal;
+import uade.edu.ar.model.clases.Usuario;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.Date;
 
 public class PacienteDTO {
@@ -30,7 +35,15 @@ public class PacienteDTO {
     private boolean PeticonesCompletas;
 
     private SexoPaciente Sexo;
+    private Usuario UsuarioAsociado;
 
+    private ArrayList<Integer> PeticionAsociada;
+
+    private Sucursal SucursalAsociada;
+
+    private ControllerPaciente ControllerPaciente;
+
+    private uade.edu.ar.dao.PeticionDAO PeticionDAO;
 
     //METODOS
 
@@ -126,9 +139,65 @@ public class PacienteDTO {
     public void setSexo(SexoPaciente sexo) {
         Sexo = sexo;
     }
+    public Usuario getUsuarioAsociado() {
+        return UsuarioAsociado;
+    }
 
+    public void setUsuarioAsociado(Usuario usuarioAsociado) {
+        UsuarioAsociado = usuarioAsociado;
+    }
+
+    public ArrayList<Integer> getPeticionAsociada() {
+        return PeticionAsociada;
+    }
+
+    public void setPeticionAsociada(ArrayList<Integer> peticionAsociada) {
+        PeticionAsociada = peticionAsociada;
+    }
+
+    public Sucursal getSucursalAsociada() {
+        return SucursalAsociada;
+    }
+
+    public void setSucursalAsociada(Sucursal sucursalAsociada) {
+        SucursalAsociada = sucursalAsociada;
+    }
+
+    public uade.edu.ar.controller.ControllerPaciente getControllerPaciente() {
+        return ControllerPaciente;
+    }
+
+    public void AltaPeticion(String ObraSocial, int DNI, int nroS, int IDU, ArrayList IDPR){
+
+
+
+        int ID = 0;
+
+        //Creado de fechas
+        LocalDate FechaCarg = LocalDate.now();
+        LocalDate FechaEntrega = FechaCarg.plusMonths(1);
+
+        String FC = FechaCarg.toString();
+        String FR = FechaCarg.toString();
+        ArrayList<Resultado> RAsociado = new ArrayList<Resultado>();
+        //Paciente PacAsociado  =
+
+        //Peticion pet = new Peticion(FC, FR, ID, ObraSocial,false, PacAsociado, SAsociada, UAsociado, PracAsociada, RAsociado)
+    }
+
+    public void setControllerPaciente(uade.edu.ar.controller.ControllerPaciente controllerPaciente) {
+        ControllerPaciente = controllerPaciente;
+    }
+
+    public uade.edu.ar.dao.PeticionDAO getPeticionDAO() {
+        return PeticionDAO;
+    }
+
+    public void setPeticionDAO(uade.edu.ar.dao.PeticionDAO peticionDAO) {
+        PeticionDAO = peticionDAO;
+    }
 public Paciente dtoToModel(PacienteDTO dto){
-        Paciente p = new Paciente(dto.getDNI(), dto.getNombreUsuario(), dto.getEmail(), dto.getPassword(), dto.getNombre(), dto.getDomicilio(), dto.getFechaNacimiento(),dto.getEdad(), dto.isPeticonesCompletas(), dto.getSexo());
+        Paciente p = new Paciente(dto.getDNI(), dto.getNombreUsuario(), dto.getEmail(), dto.getPassword(), dto.getNombre(), dto.getDomicilio(), dto.getFechaNacimiento(),dto.getEdad(), dto.isPeticonesCompletas(), dto.getSexo(),  dto.getUsuarioAsociado(),dto.getPeticionAsociada(),dto.getSucursalAsociada());
     return p;
 }
 //TUVE QUE AGREGAR ESTO PARA QUE EN CUSTOMTABLEMODEL NO TIRE ERROR LA FUNCION getValueAt

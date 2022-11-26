@@ -37,7 +37,7 @@ public class Paciente {
 
     private Usuario UsuarioAsociado;
 
-    private ArrayList<int> PeticionAsociada;
+    private ArrayList<Integer> PeticionAsociada;
 
     private Sucursal SucursalAsociada;
 
@@ -45,7 +45,7 @@ public class Paciente {
 
     private PeticionDAO PeticionDAO;
 
-     public Paciente(int DNI,String NombreUsuario,String Email,String Password,String Nombre,String Domicilio, String FechaNacimiento,int Edad, boolean PeticonesCompletas,SexoPaciente Sexo, Usuario UsuarioAsociado, ArrayList<int> PeticionAsociada, Sucursal SucursalAsociada){
+     public Paciente(int DNI,String NombreUsuario,String Email,String Password,String Nombre,String Domicilio, String FechaNacimiento,int Edad, boolean PeticonesCompletas,SexoPaciente Sexo, Usuario UsuarioAsociado, ArrayList<Integer> PeticionAsociada, Sucursal SucursalAsociada){
                 this.DNI = DNI;
                 this.NombreUsuario= NombreUsuario;
                 this.Email=Email;
@@ -152,11 +152,11 @@ public class Paciente {
         UsuarioAsociado = usuarioAsociado;
     }
 
-    public ArrayList<int> getPeticionAsociada() {
+    public ArrayList<Integer> getPeticionAsociada() {
         return PeticionAsociada;
     }
 
-    public void setPeticionAsociada(ArrayList<int> peticionAsociada) {
+    public void setPeticionAsociada(ArrayList<Integer> peticionAsociada) {
         PeticionAsociada = peticionAsociada;
     }
 

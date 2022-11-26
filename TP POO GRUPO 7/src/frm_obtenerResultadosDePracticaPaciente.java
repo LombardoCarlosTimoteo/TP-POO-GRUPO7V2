@@ -34,7 +34,7 @@ public class frm_obtenerResultadosDePracticaPaciente extends JInternalFrame {
             public void actionPerformed(ActionEvent e) {
                 int DNI = Integer.parseInt(textFieldDNI.getText());
                 String PracticaID = textFieldPracticaID.getText();
-                controllerPaciente.mostrarResultadoPractica(PracticaID,DNI);
+                //controllerPaciente.mostrarResultadoPractica(PracticaID,DNI);
             }
         });
         cancelarButton.addActionListener(new ActionListener() {
