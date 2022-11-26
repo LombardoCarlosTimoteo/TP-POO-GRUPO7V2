@@ -134,6 +134,8 @@ public class ControllerPaciente {
 
         int posicion = getIndex(DNI);
 
+        ListaPacientes.get(posicion);
+
         boolean reservado = false;
 
         for (Peticion P : ListaPacientes.get(posicion).getPeticionAsociada()){
@@ -189,6 +191,66 @@ public class ControllerPaciente {
      }
      else System.out.println("El Paciente ya esta registrado");
  }
+
+    public void mostrarResultadoPractica2 (String IDPractica, int DNI){
+
+        ArrayList<Resultado> ResultadosAMostrar = new ArrayList<Resultado>();
+
+        int posicion = getIndex(DNI);
+
+        Paciente pac = ListaPacientes.get(posicion);
+
+        ArrayList<Peticion> ListaAuxPet = pac.getPeticionDAO().getAll();
+        ArrayList<Peticion> ListaPeticiones = new ArrayList<Peticion>;
+
+        for (int id :pac.getPeticionAsociada()){
+            for (Peticion pet: ListaAuxPet){
+                if (pet.getIDPeticion() == id);
+                    ListaPeticiones.add(pet);
+            }
+        }
+
+        boolean reservado = false;
+
+        for (Peticion P : ListaPeticiones{
+            for (int i = 0; i < ListaPacientes.get(posicion).getPeticionAsociada().size(); i++){
+                ArrayList<Practica> Listapractica = ListaPacientes.get(posicion).getPeticionAsociada().get(i).getPracticaAsociada();
+                for (Practica PR : Listapractica){
+                    if (PR.getIDPractica() == IDPractica){
+
+                        ArrayList<Resultado> ListaResultados =  PR.getResultadoAsociado();
+                        ArrayList<ValorReservado> ListaValoresReservados = PR.getVReservadoAsociado();
+
+
+                        for (Resultado R : ListaResultados) {
+                            String valor = R.getValor();
+
+
+                            for (ValorReservado VR : ListaValoresReservados) {
+                                reservado = false;
+                                String comparacion = String.valueOf(VR.getTipoComparacion());
+                                String valorComparacion = VR.getValor();
+                                reservado = R.EsReservado(comparacion, valorComparacion, valor, reservado);
+                                if(reservado) System.out.println(R.getIDResultado() + " El resultado debe ser retirado por sucursal");
+                                    //Almacenar resultados
+                                else {
+                                    ResultadosAMostrar.add(R);
+                                }
+                            }
+
+                        }
+                    }
+                }
+            }
+        }
+        for (Resultado R : ResultadosAMostrar){
+            System.out.println(R.getIDResultado() + R.getValor());
+        }
+    }
+
+
+
+
 
 }
 

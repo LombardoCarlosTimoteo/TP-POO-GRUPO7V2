@@ -1,5 +1,6 @@
 package uade.edu.ar.model.clases;
 
+import uade.edu.ar.dao.PeticionDAO;
 import uade.edu.ar.dto.PacienteDTO;
 import uade.edu.ar.model.SexoPaciente;
 import uade.edu.ar.controller.ControllerPaciente;
@@ -36,13 +37,15 @@ public class Paciente {
 
     private Usuario UsuarioAsociado;
 
-    private ArrayList<Peticion> PeticionAsociada;
+    private ArrayList<int> PeticionAsociada;
 
     private Sucursal SucursalAsociada;
 
     private ControllerPaciente ControllerPaciente;
 
-     public Paciente(int DNI,String NombreUsuario,String Email,String Password,String Nombre,String Domicilio, String FechaNacimiento,int Edad, boolean PeticonesCompletas,SexoPaciente Sexo, Usuario UsuarioAsociado, ArrayList<Peticion> PeticionAsociada, Sucursal SucursalAsociada){
+    private PeticionDAO PeticionDAO;
+
+     public Paciente(int DNI,String NombreUsuario,String Email,String Password,String Nombre,String Domicilio, String FechaNacimiento,int Edad, boolean PeticonesCompletas,SexoPaciente Sexo, Usuario UsuarioAsociado, ArrayList<int> PeticionAsociada, Sucursal SucursalAsociada){
                 this.DNI = DNI;
                 this.NombreUsuario= NombreUsuario;
                 this.Email=Email;
@@ -149,11 +152,11 @@ public class Paciente {
         UsuarioAsociado = usuarioAsociado;
     }
 
-    public ArrayList<Peticion> getPeticionAsociada() {
+    public ArrayList<int> getPeticionAsociada() {
         return PeticionAsociada;
     }
 
-    public void setPeticionAsociada(ArrayList<Peticion> peticionAsociada) {
+    public void setPeticionAsociada(ArrayList<int> peticionAsociada) {
         PeticionAsociada = peticionAsociada;
     }
 
@@ -189,4 +192,13 @@ public class Paciente {
 
     public void setControllerPaciente(uade.edu.ar.controller.ControllerPaciente controllerPaciente) {
         ControllerPaciente = controllerPaciente;
-}}
+     }
+
+    public uade.edu.ar.dao.PeticionDAO getPeticionDAO() {
+        return PeticionDAO;
+    }
+
+    public void setPeticionDAO(uade.edu.ar.dao.PeticionDAO peticionDAO) {
+        PeticionDAO = peticionDAO;
+    }
+}
